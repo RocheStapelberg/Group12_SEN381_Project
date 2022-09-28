@@ -9,8 +9,8 @@ namespace UkupholisaHealthcare.Library.Models
     public class Provider
     {
         public int Id { get; set; }
-        public string ProviderName { get; set; }
-        public string Adress { get; set; }
-        public string Contact { get; set; }
+        public string? ProviderName { get; set; }
+        public string? Adress { get; set; }
+        public string? Contact { get; set; }
     }
 }
