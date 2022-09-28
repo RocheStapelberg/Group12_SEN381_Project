@@ -6,11 +6,13 @@ using System.Threading.Tasks;
 
 namespace UkupholisaHealthcare.Library.Models
 {
-    public class Provider
+    public class CallReport
     {
         public int Id { get; set; }
-        public string ProviderName { get; set; }
-        public string Adress { get; set; }
-        public string Contact { get; set; }
+        public int FK_ClientId { get; set; }
+        public datetime CallBegin { get; set; }
+        public datetime CallEnd { get; set; }
+        public bool IsSatisfied { get; set; }
+
     }
 }
