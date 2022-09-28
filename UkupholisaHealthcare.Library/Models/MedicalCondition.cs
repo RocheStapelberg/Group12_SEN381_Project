@@ -12,8 +12,8 @@ namespace UkupholisaHealthcare.Library.Models
 
         public int FK_TreatmentId { get; set; }
 
-        public string ConditionName { get; set; }
+        public string? ConditionName { get; set; }
 
-        public string Description { get; set; }
+        public string? Description { get; set; }
     }
 }
