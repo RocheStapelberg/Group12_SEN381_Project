@@ -10,8 +10,8 @@ namespace UkupholisaHealthcare.Library.Models
     {
         public int Id { get; set; }
         public int FK_ClientId { get; set; }
-        public datetime CallBegin { get; set; }
-        public datetime CallEnd { get; set; }
+        public DateTime CallBegin { get; set; }
+        public DateTime CallEnd { get; set; }
         public bool IsSatisfied { get; set; }
 
     }
