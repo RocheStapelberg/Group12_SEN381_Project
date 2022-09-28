@@ -6,14 +6,12 @@ using System.Threading.Tasks;
 
 namespace UkupholisaHealthcare.Library.Models
 {
-    public class Treatment
+     public class Provider
     {
         public int Id { get; set; }
-        public int FK_ProviderId { get; set; }
-        public string TreatmentName { get; set; }
-        public string Description { get; set; }
+        public string ProviderName { get; set; }
+        public string Adress { get; set; }
 
-
-
+        public string Contact { get; set; }
     }
 }
