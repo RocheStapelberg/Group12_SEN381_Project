@@ -10,8 +10,8 @@ namespace UkupholisaHealthcare.Library.Models
     {
         public int Id { get; set; }
         public int FK_ProviderId { get; set; }
-        public string TreatmentName { get; set; }
-        public string Description { get; set; }
+        public string? TreatmentName { get; set; }
+        public string? Description { get; set; }
 
 
 
