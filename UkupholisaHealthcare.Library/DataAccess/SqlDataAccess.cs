@@ -9,7 +9,7 @@ namespace UkupholisaHealthcare.Library.DataAccess
     /// <summary>
     /// Main DataAccess Class
     /// </summary>
-    public class SqlDataAccess : IDisposable
+    public class SqlDataAccess : IDisposable, ISqlDataAccess
     {
 
         // Open connection/start transaction
