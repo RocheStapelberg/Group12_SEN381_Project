@@ -13,7 +13,5 @@ namespace UkupholisaHealthcare.Library.Models
         public string? TreatmentName { get; set; }
         public string? Description { get; set; }
 
-
-
     }
 }
