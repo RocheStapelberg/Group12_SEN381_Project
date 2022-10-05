@@ -5,6 +5,7 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE PROCEDURE spInsertClient 
+    @Family_Id INT,
 	@Firstname NVARCHAR(50), 
 	@Surname NVARCHAR(50),
 	@Age INT,
@@ -21,7 +22,7 @@ AS
 BEGIN
 	SET NOCOUNT ON;
     -- Insert SP for Cclient
-	INSERT INTO [Client](Firstname, Surname,Age,Gender,Adress,EmailAdress,Cellphone,MemberType,isActive,DateCreated)
-	VALUES (@Firstname, @Surname, @Age,@Gender,@Address,@EmailAdress,@Cellphone,@MemberType,@isActive,@DateCreated);
+	INSERT INTO [Client](Family_Id,Firstname, Surname,Age,Gender,Adress,EmailAdress,Cellphone,MemberType,isActive,DateCreated)
+	VALUES (@Family_Id,@Firstname, @Surname, @Age,@Gender,@Address,@EmailAdress,@Cellphone,@MemberType,@isActive,@DateCreated);
 END
 GO
