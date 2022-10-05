@@ -1,0 +1,16 @@
+USE UkupholisaDb
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE spDeletePolicy
+	@Id INT
+AS
+BEGIN
+	SET NOCOUNT ON;
+    -- Delete SP for Policy
+	DELETE FROM [Policy]
+	WHERE Id = @Id;
+END
+GO

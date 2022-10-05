@@ -1,0 +1,15 @@
+USE UkupholisaDb
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE spGetAllPolicy 
+AS
+BEGIN
+	SET NOCOUNT ON;
+    -- Get All SP for Policy
+	SELECT *
+    FROM [Policy];
+END
+GO
