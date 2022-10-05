@@ -1,0 +1,9 @@
+use UkupholisaDb
+GO 
+CREATE TABLE [FamilyLink](
+Id INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
+PolicyName NVARCHAR(50),
+MemberCount INT NOT NULL, 
+DateCreated DATETIME2 NOT NULL
+
+)

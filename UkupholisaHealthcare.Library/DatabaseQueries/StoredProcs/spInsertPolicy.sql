@@ -13,7 +13,7 @@ CREATE PROCEDURE spInsertPolicy
 AS
 BEGIN
 	SET NOCOUNT ON;
-    -- Insert SP for Provider
+    -- Insert SP for Policy
 	INSERT INTO [Policy](Family_id,PolicyeName, [Description] ,PolicyPrice,isApproved)
 	VALUES (@Family_Id,@PolicyName, @Description, @PolicyPrice,@isApproved);
 END
