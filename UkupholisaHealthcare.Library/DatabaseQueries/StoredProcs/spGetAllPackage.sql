@@ -1,0 +1,15 @@
+USE UkupholisaDb
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE spGetAllPackage 
+AS
+BEGIN
+	SET NOCOUNT ON;
+    -- Get All SP for Package
+	SELECT *
+    FROM [Package];
+END
+GO
