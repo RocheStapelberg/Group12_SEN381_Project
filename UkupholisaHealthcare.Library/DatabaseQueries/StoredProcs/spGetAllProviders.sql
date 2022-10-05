@@ -1,0 +1,15 @@
+USE UkupholisaDb
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE spGetAllProviders 
+AS
+BEGIN
+	SET NOCOUNT ON;
+    -- Get All SP for Provider
+	SELECT *
+    FROM [Provider];
+END
+GO

@@ -1,0 +1,9 @@
+USE UkupholisaDb
+GO
+CREATE TABLE [Provider] 
+(
+	Id INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
+	ProviderName NVARCHAR(50) NOT NULL,
+	ProviderAddress NVARCHAR(100) NOT NULL,
+	ProviderContact NVARCHAR(50) NOT NULL
+)
