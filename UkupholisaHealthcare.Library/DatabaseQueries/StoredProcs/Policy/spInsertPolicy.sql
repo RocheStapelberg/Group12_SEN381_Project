@@ -14,7 +14,7 @@ AS
 BEGIN
 	SET NOCOUNT ON;
     -- Insert SP for Policy
-	INSERT INTO [Policy](Family_id,PolicyeName, [Description] ,PolicyPrice,isApproved)
+	INSERT INTO [Policy](Family_id,PolicyName, [Description] ,PolicyPrice,isApproved)
 	VALUES (@Family_Id,@PolicyName, @Description, @PolicyPrice,@isApproved);
 END
 GO

@@ -1,0 +1,15 @@
+﻿USE UkupholisaDb
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE spGetAllTreatment
+AS
+BEGIN
+	SET NOCOUNT ON;
+    -- Get All SP for Treatment
+	SELECT *
+    FROM [Treatment];
+END
+GO

@@ -1,0 +1,16 @@
+﻿USE UkupholisaDb
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE spDeleteTreatment
+	@Id INT
+AS
+BEGIN
+	SET NOCOUNT ON;
+    -- Delete SP for Treatment
+	DELETE FROM [Treatment]
+	WHERE Id = @Id;
+END
+GO
