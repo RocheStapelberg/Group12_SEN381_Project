@@ -15,7 +15,7 @@ BEGIN
 END
 GO
 -- GET BY ID
-CREATE PROCEDURE spGetMedicalCondition
+CREATE PROCEDURE spGetMedicalConditionById
 @Id INT
 AS
 BEGIN
