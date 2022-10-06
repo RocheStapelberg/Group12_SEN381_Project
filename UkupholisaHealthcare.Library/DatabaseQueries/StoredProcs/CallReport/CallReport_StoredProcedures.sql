@@ -25,8 +25,8 @@ AS
 BEGIN
 	SET NOCOUNT ON;
     -- Insert SP for CallReport
-	INSERT INTO [CallReport](Client_Id, CallBegin CallEnd, IsSatisfied)
-	VALUES (@Client_Id,@CallBegin, @CallEnd, @IsSatisfied);
+	INSERT INTO [CallReport](Client_Id, CallBegin, CallEnd, IsSatisfied)
+	VALUES (@Client_Id, @CallBegin, @CallEnd, @IsSatisfied);
 END
 GO
 -- UPDATE CALLREPORT

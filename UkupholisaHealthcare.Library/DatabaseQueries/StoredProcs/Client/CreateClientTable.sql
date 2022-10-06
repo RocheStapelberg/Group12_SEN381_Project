@@ -1,17 +1,17 @@
 use UkupholisaDb
 GO 
-CREATE TABLE [Client](
+CREATE TABLE [Client]
+(
 Id INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
-FamilyLink_id INT NOT NULL , 
+FamilyLink_Id INT NOT NULL , 
 Firstname NVARCHAR(50) NOT NULL ,
 Surname NVARCHAR(50) NOT NULL , 
 Age INT NOT NULL ,
 Gender NVARCHAR(50) NOT NULL,
-Adress NVARCHAR(100) NOT NULL,
-EmailAdress NVARCHAR(50) NOT NULL,
+[Address] NVARCHAR(100) NOT NULL,
+EmailAddress NVARCHAR(50) NOT NULL,
 Cellphone NVARCHAR(10) NOT NULL,
 MemberType NVARCHAR(50) NOT NULL,
 isActive  bit NOT NULL ,
 DateCreated DATETIME2 NOT NULL
-
 )
