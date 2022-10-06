@@ -18,6 +18,11 @@ namespace UkupholisaHealthcare.Library.DataAccess
         // Close connection/stop transaction
         // Dispose
 
+        private IDbConnection? _connection;
+        private IDbTransaction? _transaction;
+        private readonly IConfiguration? _config;
+        private readonly ILogger<SqlDataAccess>? _logger;
+
         public SqlDataAccess(IConfiguration config, ILogger<SqlDataAccess> logger)
         {
             _config = config;
@@ -52,11 +57,6 @@ namespace UkupholisaHealthcare.Library.DataAccess
                     commandType: CommandType.StoredProcedure);
             }
         }
-
-        private IDbConnection _connection;
-        private IDbTransaction _transaction;
-        private readonly IConfiguration _config;
-        private readonly ILogger<SqlDataAccess> _logger;
 
         public void StartTransaction(string connectionStringName)
         {

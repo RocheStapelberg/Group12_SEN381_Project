@@ -8,25 +8,25 @@ using UkupholisaHealthcare.Library.Models;
 
 namespace UkupholisaHealthcare.Library.Data
 {
-    public class ClientData
+    public class ProviderData
     {
-        //TODO - Add stored procs
         private readonly ISqlDataAccess _sql;
 
-        public ClientData(ISqlDataAccess sql)
+        public ProviderData(ISqlDataAccess sql)
         {
             _sql = sql;
         }
-        public List<Client> GetClients()
+
+        public List<Provider> GetProvider()
         {
-            var output = _sql.LoadData<Client, dynamic>("", new { }, "Default");
+            var output = _sql.LoadData<Provider, dynamic>("", new { }, "Default");
 
             return output;
         }
 
-        public void SaveClient(Client client)
+        public void SaveProvider(Provider provider)
         {
-            _sql.SaveData("", client, "Default");
+            _sql.SaveData("", provider, "Default");
         }
     }
 }
