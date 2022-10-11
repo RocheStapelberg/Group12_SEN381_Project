@@ -20,7 +20,7 @@ CREATE PROCEDURE spInsertCallReport
 	@Client_Id INT,
 	@CallBegin INT, 
 	@CallEnd INT, 
-	@IsSatisfied bit,
+	@IsSatisfied bit
 AS
 BEGIN
 	SET NOCOUNT ON;
@@ -35,14 +35,14 @@ CREATE PROCEDURE spUpdateCallReport
 	@Client_Id INT,
 	@CallBegin INT, 
 	@CallEnd INT, 
-	@IsSatisfied bit,
+	@IsSatisfied bit
 	
 AS
 BEGIN
 	SET NOCOUNT ON;
     -- Update SP for CallReport
     UPDATE [CallReport]
-    SET (Client_Id = @Client_Id, CallBegin = @CallBegin, CallEnd = @CallEnd, IsSatisfied = @IsSatisfied )
+    SET Client_Id = @Client_Id, CallBegin = @CallBegin, CallEnd = @CallEnd, IsSatisfied = @IsSatisfied 
     WHERE Id = @Id
 END
 GO

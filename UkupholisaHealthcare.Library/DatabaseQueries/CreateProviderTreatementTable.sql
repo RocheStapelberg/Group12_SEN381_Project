@@ -1,9 +1,8 @@
-use UkupholisaDb
-GO 
-CREATE TABLE [ProviderTreatment]
+USE UkupholisaDb
+GO
+CREATE TABLE ProviderTreatment
 (
-Id INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
-Provider_id INT NOT NULL , 
-Treatment_id INT NOT NULL , 
-
+	Id INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
+	FK_Provider_Id INT NOT NULL,
+	FK_Treatment_Id INT NOT NULL
 )

@@ -28,7 +28,7 @@ END
 GO
 -- INSERT CLIENT
 CREATE PROCEDURE spInsertClient 
-    @Family_Id INT,
+    @FamilyLink_Id INT,
 	@Firstname NVARCHAR(50), 
 	@Surname NVARCHAR(50),
 	@Age INT,
@@ -43,13 +43,13 @@ AS
 BEGIN
 	SET NOCOUNT ON;
     -- Insert SP for Client
-	INSERT INTO [Client](Family_Id, Firstname, Surname, Age, Gender, [Address], EmailAddress, Cellphone, MemberType, isActive, DateCreated)
-	VALUES (@Family_Id, @Firstname, @Surname, @Age, @Gender, @Address, @EmailAddress, @Cellphone, @MemberType, @isActive, @DateCreated);
+	INSERT INTO [Client](FamilyLink_Id, Firstname, Surname, Age, Gender, [Address], EmailAddress, Cellphone, MemberType, isActive, DateCreated)
+	VALUES (@FamilyLink_Id, @Firstname, @Surname, @Age, @Gender, @Address, @EmailAddress, @Cellphone, @MemberType, @isActive, @DateCreated);
 END
 GO
 -- UPDATE CLIENT 
 CREATE PROCEDURE spUpdateClient 
-    @Family_Id INT,
+    @FamilyLink_Id INT,
     @Id INT,
 	@Firstname NVARCHAR(50), 
 	@Surname NVARCHAR(50),
@@ -66,9 +66,7 @@ BEGIN
 	SET NOCOUNT ON;
     -- Insert SP for Cclient
 	UPDATE [Client] 
-	SET
-    ( 
-    Family_Id=@Family_Id,
+	SET FamilyLink_Id=@FamilyLink_Id,
 	Firstname=@Firstname, 
 	Surname=@Surname,
 	Age=@Age,
@@ -79,8 +77,7 @@ BEGIN
 	MemberType=@MemberType,
 	isActive=@isActive,
 	DateCreated=@DateCreated
-	)
-	WHERE Id=@Id
+	WHERE Id=@Id;
 END
 GO
 -- DELETE CLIENT
