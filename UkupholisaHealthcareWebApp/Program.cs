@@ -1,3 +1,6 @@
+using UkupholisaHealthcare.Library.Data;
+using UkupholisaHealthcare.Library.DataAccess;
+
 namespace UkupholisaHealthcareWebApp
 {
     public class Program
@@ -8,6 +11,11 @@ namespace UkupholisaHealthcareWebApp
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+
+            // Custom Services //
+            builder.Services.AddTransient<ISqlDataAccess, SqlDataAccess>();
+            builder.Services.AddTransient<IUserData, UserData>();
+            builder.Services.AddTransient<IProviderData, ProviderData>();
 
             var app = builder.Build();
 
