@@ -19,14 +19,14 @@ namespace UkupholisaHealthcare.Library.Data
         }
         public List<Client> GetClients()
         {
-            var output = _sql.LoadData<Client, dynamic>("", new { }, "Default");
+            var output = _sql.LoadData<Client, dynamic>("", new { });
 
             return output;
         }
 
         public void SaveClient(Client client)
         {
-            _sql.SaveData("", client, "Default");
+            _sql.RunStoredProcedure("", client);
         }
     }
 }

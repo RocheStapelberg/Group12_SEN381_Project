@@ -29,14 +29,14 @@ namespace UkupholisaHealthcare.Library.DataAccess
             _logger = logger;
         }
 
-        public string GetConnectionString(string name)
+        public string GetConnectionString()
         {
-            return _config.GetConnectionString(name);
+            return _config.GetConnectionString("Default");
         }
 
-        public List<T> LoadData<T, U>(string storedProcedure, U parameters, string connectionStringName)
+        public List<T> LoadData<T, U>(string storedProcedure, U parameters)
         {
-            string connectionString = GetConnectionString(connectionStringName);
+            string connectionString = GetConnectionString();
 
             using (IDbConnection cnn = new SqlConnection(connectionString))
             {
@@ -47,9 +47,9 @@ namespace UkupholisaHealthcare.Library.DataAccess
             }
         }
 
-        public void SaveData<T>(string storedProcedure, T parameters, string connectionStringName)
+        public void RunStoredProcedure<T>(string storedProcedure, T parameters)
         {
-            string connectionString = GetConnectionString(connectionStringName);
+            string connectionString = GetConnectionString();
 
             using (IDbConnection cnn = new SqlConnection(connectionString))
             {
@@ -58,9 +58,9 @@ namespace UkupholisaHealthcare.Library.DataAccess
             }
         }
 
-        public void StartTransaction(string connectionStringName)
+        public void StartTransaction()
         {
-            string connectionString = GetConnectionString(connectionStringName);
+            string connectionString = GetConnectionString();
 
             _connection = new SqlConnection(connectionString);
             _connection.Open();

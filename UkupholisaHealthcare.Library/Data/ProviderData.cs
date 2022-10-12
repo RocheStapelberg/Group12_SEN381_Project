@@ -8,7 +8,10 @@ using UkupholisaHealthcare.Library.Models;
 
 namespace UkupholisaHealthcare.Library.Data
 {
-    public class ProviderData
+    /// <summary>
+    /// Provider data class
+    /// </summary>
+    public class ProviderData : IProviderData
     {
         private readonly ISqlDataAccess _sql;
 
@@ -17,16 +20,20 @@ namespace UkupholisaHealthcare.Library.Data
             _sql = sql;
         }
 
-        public List<Provider> GetProvider()
+        public List<Provider> GetAllProviders()
         {
-            var output = _sql.LoadData<Provider, dynamic>("", new { }, "Default");
+            var output = _sql.LoadData<Provider, dynamic>("spGetAllProviders", new { });
 
             return output;
         }
 
         public void SaveProvider(Provider provider)
         {
-            _sql.SaveData("", provider, "Default");
+            _sql.RunStoredProcedure("spInsertProvider", provider);
+        }
+
+        public void DeleteProvider(int Id)
+        {
         }
     }
 }
