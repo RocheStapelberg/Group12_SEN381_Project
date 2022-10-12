@@ -1,0 +1,40 @@
+﻿@using UkupholisaHealthcare.Library.Models
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = "~/Views/Shared/_StaffLayout.cshtml";
+}
+@model List<Provider>
+@{
+    <div class="container">
+        <h1 class="text-center">Provider Management</h1>
+        <hr />
+        <a asp-action="CreateProvider">Add new provider to database</a>
+        <table class="table">
+            <thead>
+                <tr>
+                    <td>Id</td>
+                    <td>Provider Name</td>
+                    <td>Provider Address</td>
+                    <td>Provider Contact</td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var provider in Model)
+                {
+                    <tr>
+                        <td>@provider.Id</td>
+                        <td>@provider.ProviderName</td>
+                        <td>@provider.ProviderAddress</td>
+                        <td>@provider.ProviderContact</td>
+                        <td>
+                            <a asp-action="EditPage" asp-route-id="@provider.Id">Edit</a>
+                            <a asp-action="Delete" asp-route-id="@provider.Id">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}

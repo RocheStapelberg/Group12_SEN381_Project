@@ -1,0 +1,21 @@
+﻿@using UkupholisaHealthcare.Library.Models
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model User
+@{
+    <h1>Create a User</h1>
+    <form asp-action="Create">
+        <p>
+            <label class="form-label" for="email">Employee Email :</label>
+            <input class="form-control" type="text" name="email" required />
+        </p>
+        <p>
+            <label class="form-label" for="password">Employee Password :</label>
+            <input class="form-control" type="password" name="password" required />
+        </p>
+        <p>
+            <input class="btn btn-primary" type="submit" value="Create" />
+        </p>
+    </form>
+}

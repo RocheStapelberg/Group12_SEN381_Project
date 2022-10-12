@@ -1,8 +1,22 @@
-﻿@{
+﻿@*
+    Home Page
+    // Code Deposit //
+    <a asp-controller="People" asp-action="Edit" asp-route-id="@item.NameID">Edit</a>
+*@
+@{
     ViewData["Title"] = "Home Page";
 }
-
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="container">
+    <form class="text-center">
+        <h1 class="display-4">Welcome to Ukupholisa Healthcare</h1>
+        <hr />
+        <div class="row mt-lg-5">
+            <h2 class="col-6">Please start a call with us -></h2>
+            <input class="col-6 btn btn-primary btn-lg" type="submit" asp-controller="CallController" asp-action="Index" value="Simulate Call" />
+        </div>
+        <div class="row mt-4">
+            <h2 class="col-6">New Client? Press Here -></h2>
+            <input class="col-6 btn btn-success btn-lg" type="submit" asp-controller="Client" asp-action="CreateClient" value="New Client Call" />
+        </div>
+    </form>
 </div>

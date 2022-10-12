@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>System</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/UkupholisaHealthcareWebApp.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/StaffLayout.css" asp-append-version="true" />
+    <link href="~/lib/font-awesome/css/all.css" rel="stylesheet" />
+    <link href="~/lib/font-awesome/css/all.min.css" rel="stylesheet" />
+</head>
+<body>
+    <!--Main Navigation-->
+    <header>
+        <!-- Sidebar -->
+        <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-white">
+            <div class="position-sticky">
+                <div class="list-group list-group-flush mx-3 mt-4">
+                    <a class="list-group-item list-group-item-action py-2 ripple active" aria-current="true" asp-area="" asp-controller="Dashboard" asp-action="Index">
+                        <i class="fas fa-tachometer-alt fa-fw me-3"></i><span>Main dashboard</span>
+                    </a>
+                    <a class="list-group-item list-group-item-action py-2 ripple">
+                        <i class="fas fa-users fa-fw me-3"></i><span>Client Manager</span>
+                    </a>
+                    <a class="list-group-item list-group-item-action py-2 ripple">
+                        <i class="fas fa-chart-line fa-fw me-3"></i><span>Call Reports</span>
+                    </a>
+                    <a class="list-group-item list-group-item-action py-2 ripple">
+                        <i class="fas fa-chart-bar fa-fw me-3"></i><span>Policies</span>
+                    </a>
+                    <a class="list-group-item list-group-item-action py-2 ripple">
+                        <i class="fas fa-chart-line fa-fw me-3"></i><span>Packages</span>
+                    </a>
+                    <a class="list-group-item list-group-item-action py-2 ripple">
+                        <i class="fas fa-dna fa-fw me-3"></i><span>Medical Conditions</span>
+                    </a>
+                    <a class="list-group-item list-group-item-action py-2 ripple">
+                        <i class="fas fa-bong fa-fw me-3"></i><span>Treatments</span>
+                    </a>
+                    <a class="list-group-item list-group-item-action py-2 ripple" asp-area="" asp-controller="Provider" asp-action="Index">
+                        <i class="fas fa-building fa-fw me-3"></i><span>Providers</span>
+                    </a>
+                    <a class="list-group-item list-group-item-action py-2 ripple">
+                        <i class="fas fa-money-bill fa-fw me-3"></i><span>Employees</span>
+                    </a>
+                </div>
+            </div>
+        </nav>
+        <!-- Sidebar -->
+    </header>
+    <!--Main Navigation-->
+    <!--Main layout-->
+    <main>
+        <div class="container pt-4">
+            @RenderBody()
+        </div>
+    </main>
+    <!--Main layout-->
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/lib/chart.js/chart.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
