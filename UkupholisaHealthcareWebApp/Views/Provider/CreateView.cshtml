@@ -1,0 +1,42 @@
+﻿@model UkupholisaHealthcare.Library.Models.Provider
+
+@{
+    ViewData["Title"] = "CreateView";
+    Layout = "~/Views/Shared/_StaffLayout.cshtml";
+}
+
+<h1>Add Provider to Database</h1>
+<hr />
+<div class="container">
+    <form asp-action="CreateView">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="ProviderName" class="control-label"></label>
+            <input asp-for="ProviderName" class="form-control" />
+            <span asp-validation-for="ProviderName" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="ProviderAddress" class="control-label"></label>
+            <input asp-for="ProviderAddress" class="form-control" />
+            <span asp-validation-for="ProviderAddress" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="ProviderContact" class="control-label"></label>
+            <input asp-for="ProviderContact" class="form-control" />
+            <span asp-validation-for="ProviderContact" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Create" class="btn btn-primary" />
+        </div>
+    </form>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

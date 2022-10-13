@@ -12,18 +12,15 @@
     <div class="container">
         <h1 class="text-center">Provider Management</h1>
         <hr />
-        <a class="col-2" asp-action="CreateProvider">Add new provider to database</a>
+        <a asp-action="CreateView">Add new provider to database</a>
         <div class="row">
             <form class="form-inline" asp-action="Filter" >
                 <div class="row mt-3">
-                    <div class="col-3">
-                        <label class="form-label" for="providerName">Search for a Provider:</label>
+                    <div class="col-8">
+                        <input class="form-control" type="text" id="providerName" name="providerName" placeholder="Search for a provider" required />
                     </div>
-                    <div class="col-5">
-                        <input class="form-control" type="text" name="providerName" required />
-                    </div>
-                    <div class="col-3">
-                        <input class="btn btn-primary" type="submit" value="Search" />
+                    <div class="col-4">
+                        <input class="btn btn-outline-primary btn-block" type="submit" value="Search" />
                     </div>
                 </div>
             </form>
@@ -48,7 +45,7 @@
                         <td>@provider.ProviderAddress</td>
                         <td>@provider.ProviderContact</td>
                         <td>
-                            <input class="btn btn-outline-warning" type="submit" asp-controller="Provider" asp-route-id="@provider.Id" asp-action="Edit" value="Edit" />
+                            <input class="btn btn-outline-info" type="submit" asp-controller="Provider" asp-route-id="@provider.Id" asp-action="Edit" value="Edit" />
                             <input class="btn btn btn-outline-danger" type="submit" asp-controller="Provider" asp-route-id="@provider.Id" asp-action="Delete" value="Delete" />
                         </td>
                     </tr>
@@ -56,4 +53,12 @@
             </tbody>
         </table>
     </div>
+}
+
+@section Scripts 
+{
+<script>
+    $('.list-group-item').removeClass('active');
+    $('#providerLink').addClass('active');
+</script>
 }
