@@ -27,13 +27,19 @@ namespace UkupholisaHealthcare.Library.Data
             return output;
         }
 
-        public void SaveProvider(Provider provider)
+        public void InsertProvider(Provider provider)
         {
             _sql.RunStoredProcedure("spInsertProvider", provider);
         }
 
-        public void DeleteProvider(int Id)
+        public void UpdateProvider(Provider provider)
         {
+            _sql.RunStoredProcedure("spUpdateProvider", provider);
+        }
+
+        public void DeleteProvider(int id)
+        {
+            _sql.RunStoredProcedure("spDeleteProvider", new { id });
         }
     }
 }

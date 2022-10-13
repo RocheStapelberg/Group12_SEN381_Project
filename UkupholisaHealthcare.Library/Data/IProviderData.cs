@@ -4,8 +4,9 @@ namespace UkupholisaHealthcare.Library.Data
 {
     public interface IProviderData
     {
-        void DeleteProvider(int Id);
+        void DeleteProvider(int id);
         List<Provider> GetAllProviders();
-        void SaveProvider(Provider provider);
+        void InsertProvider(Provider provider);
+        void UpdateProvider(Provider provider);
     }
 }
