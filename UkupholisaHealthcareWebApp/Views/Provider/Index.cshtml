@@ -1,6 +1,8 @@
 ﻿@using UkupholisaHealthcare.Library.Models
 @*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+    //<input asp-action="Edit" asp-route-id="@provider.Id">Edit</input>
+   //<input asp-action="Delete" asp-route-id="@provider.Id">Delete</input>
 *@
 @{
     Layout = "~/Views/Shared/_StaffLayout.cshtml";
@@ -10,14 +12,31 @@
     <div class="container">
         <h1 class="text-center">Provider Management</h1>
         <hr />
-        <a asp-action="CreateProvider">Add new provider to database</a>
-        <table class="table">
-            <thead>
+        <a class="col-2" asp-action="CreateProvider">Add new provider to database</a>
+        <div class="row">
+            <form class="form-inline" asp-action="Filter" >
+                <div class="row mt-3">
+                    <div class="col-3">
+                        <label class="form-label" for="providerName">Search for a Provider:</label>
+                    </div>
+                    <div class="col-5">
+                        <input class="form-control" type="text" name="providerName" required />
+                    </div>
+                    <div class="col-3">
+                        <input class="btn btn-primary" type="submit" value="Search" />
+                    </div>
+                </div>
+            </form>
+        </div>
+        <hr/>
+        <table class="table table-hover">
+            <thead class="thead-dark">
                 <tr>
                     <td>Id</td>
                     <td>Provider Name</td>
                     <td>Provider Address</td>
                     <td>Provider Contact</td>
+                    <td>Manage</td>
                 </tr>
             </thead>
             <tbody>
@@ -29,8 +48,8 @@
                         <td>@provider.ProviderAddress</td>
                         <td>@provider.ProviderContact</td>
                         <td>
-                            <a asp-action="EditPage" asp-route-id="@provider.Id">Edit</a>
-                            <a asp-action="Delete" asp-route-id="@provider.Id">Delete</a>
+                            <input class="btn btn-outline-warning" type="submit" asp-controller="Provider" asp-route-id="@provider.Id" asp-action="Edit" value="Edit" />
+                            <input class="btn btn btn-outline-danger" type="submit" asp-controller="Provider" asp-route-id="@provider.Id" asp-action="Delete" value="Delete" />
                         </td>
                     </tr>
                 }
