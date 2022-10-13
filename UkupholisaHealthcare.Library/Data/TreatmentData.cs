@@ -8,7 +8,7 @@ using UkupholisaHealthcare.Library.Models;
 
 namespace UkupholisaHealthcare.Library.Data
 {
-    public class TreatmentData
+    public class TreatmentData : ITreatmentData
     {
         private readonly ISqlDataAccess _sql;
 
@@ -21,7 +21,7 @@ namespace UkupholisaHealthcare.Library.Data
         {
             var output = _sql.LoadData<Treatment, dynamic>("spGetAllTreatments", new { });
             return output;
-        
+
         }
         public void InsertTreatment(Treatment treatment)
         {
