@@ -41,6 +41,7 @@ END
 GO
 -- UPDATE
 CREATE PROCEDURE spUpdateMedicalCondition
+	@Id INT,
     @Treatment_Id  INT,
 	@ConditionName NVARCHAR(50), 
 	@Description NVARCHAR(max)
@@ -49,7 +50,7 @@ BEGIN
 	SET NOCOUNT ON;
     -- Insert SP for Policy
 	UPDATE [MedicalCondition]
-    SET (Treatment_Id=@Treatment_Id,ConditionName = @ConditionName, [Description] = @Description)
+    SET @Treatment_Id=@Treatment_Id,ConditionName = @ConditionName, [Description] = @Description
     WHERE Id = @Id
 END
 GO

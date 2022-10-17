@@ -28,7 +28,7 @@ END
 GO
 -- INSERT
 CREATE PROCEDURE spInsertPackage
-    @Policy_Id  INT,
+	@Id INT,
 	@PackageName NVARCHAR(50), 
 	@PackageDescription NVARCHAR(max), 
 	@PackageCost money,
@@ -37,14 +37,13 @@ AS
 BEGIN
 	SET NOCOUNT ON;
     -- Insert SP for Provider
-	INSERT INTO [Package](Policy_id, PackageCost, [PackageDescription] ,PackageCost,isActive)
-	VALUES (@Policy_Id,@PackageName, @PackageDescription, @PackageCost,@isActive);
+	INSERT INTO [Package](PackageName, [PackageDescription] ,PackageCost, isActive)
+	VALUES (@PackageName, @PackageDescription, @PackageCost, @isActive);
 END
 GO
 -- UPDATE
 CREATE PROCEDURE spInsertPackage
     @Id INT,
-    @Policy_Id  INT,
 	@PackageName NVARCHAR(50), 
 	@PackageDescription NVARCHAR(max), 
 	@PackageCost money,
@@ -54,7 +53,7 @@ BEGIN
 	SET NOCOUNT ON;
     -- Insert SP for Provider
 	UPDATE [Package]
-    SET (Policy_id=@Policy_Id, PackageName = @PackageName, PackageDescription = @PackageDescription, PackageCost = @PackageCost, isActive=@isActive)
+    SET PackageName = @PackageName, PackageDescription = @PackageDescription, PackageCost = @PackageCost, isActive=@isActive
     WHERE Id = @Id
 END
 GO
