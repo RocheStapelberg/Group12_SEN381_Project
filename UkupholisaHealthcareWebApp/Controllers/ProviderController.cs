@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Reflection;
-using UkupholisaHealthcare.Library.Data;
+using UkupholisaHealthcare.Library.BussinessLogic;
 using UkupholisaHealthcare.Library.Models;
 using UkupholisaHealthcareWebApp.Models;
 

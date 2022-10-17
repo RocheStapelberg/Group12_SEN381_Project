@@ -1,6 +1,6 @@
 ﻿using UkupholisaHealthcare.Library.Models;
 
-namespace UkupholisaHealthcare.Library.Data
+namespace UkupholisaHealthcare.Library.BussinessLogic
 {
     public interface IUserData
     {

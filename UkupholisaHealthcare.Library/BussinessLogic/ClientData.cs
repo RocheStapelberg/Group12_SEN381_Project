@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using UkupholisaHealthcare.Library.DataAccess;
 using UkupholisaHealthcare.Library.Models;
 
-namespace UkupholisaHealthcare.Library.Data
+namespace UkupholisaHealthcare.Library.BussinessLogic
 {
     public class ClientData
     {

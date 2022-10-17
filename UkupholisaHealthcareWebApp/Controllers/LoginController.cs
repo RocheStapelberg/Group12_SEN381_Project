@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Cryptography;
 using System.Text;
-using UkupholisaHealthcare.Library.Data;
+using UkupholisaHealthcare.Library.BussinessLogic;
 using UkupholisaHealthcare.Library.Models;
 
 namespace UkupholisaHealthcareWebApp.Controllers

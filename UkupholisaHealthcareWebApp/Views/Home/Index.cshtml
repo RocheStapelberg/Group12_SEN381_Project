@@ -18,14 +18,14 @@
                 <input class="form-control" type="text" name="clientEmail" placeholder="Client Email" required />
             </div>
             <div class="col-3 justify-content-center">
-                <input class="col-6 btn btn-outline-primary" type="submit" value="Start a Call" data-toggle="tooltip" data-placement="top" title="Use this to call us" />
+                <a class="col-6 btn btn-outline-success" data-toggle="tooltip" data-placement="top" title="Use this to call us"><i class="fa-solid fa-phone"></i> Start a Call </a>
             </div>
         </div>
     </form>
     <form class="text-center">
         <div class="row mt-4">
             <h4 class="col-6">New Client? Press Here -></h4>
-            <input class="col-6 btn btn-outline-success btn-lg" type="submit" asp-controller="Client" asp-action="CreateClient" value="New Client Call" />
+            <a class="col-6 btn btn-outline-primary btn-lg" type="submit" asp-controller="Client" asp-action="CreateClient" /><i class="fa-solid fa-phone"></i> New Client Call</a>
         </div>
     </form>
 </div>

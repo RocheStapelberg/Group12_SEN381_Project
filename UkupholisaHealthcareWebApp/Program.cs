@@ -1,4 +1,4 @@
-using UkupholisaHealthcare.Library.Data;
+using UkupholisaHealthcare.Library.BussinessLogic;
 using UkupholisaHealthcare.Library.DataAccess;
 
 namespace UkupholisaHealthcareWebApp
@@ -17,6 +17,7 @@ namespace UkupholisaHealthcareWebApp
             builder.Services.AddTransient<IUserData, UserData>();
             builder.Services.AddTransient<IProviderData, ProviderData>();
             builder.Services.AddTransient<ITreatmentData, TreatmentData>();
+            builder.Services.AddTransient<IMedicalConditionData, MedicalConditionData>();
 
             var app = builder.Build();
 

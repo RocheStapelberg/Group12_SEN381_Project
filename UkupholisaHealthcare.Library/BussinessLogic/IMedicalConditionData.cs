@@ -1,8 +1,10 @@
-﻿namespace UkupholisaHealthcare.Library.Data
+﻿using UkupholisaHealthcare.Library.Models;
+
+namespace UkupholisaHealthcare.Library.BussinessLogic
 {
-    public interface IMedicalCondition
+    public interface IMedicalConditionData
     {
-        void DeleteMedicalCondition(global::System.Int32 id);
+        void DeleteMedicalCondition(int id);
         List<MedicalCondition> GetAllMedicalCondition();
         void InsertMedicalCondition(MedicalCondition medicalCondition);
         void UpdateMedicalCondition(MedicalCondition medicalCondition);

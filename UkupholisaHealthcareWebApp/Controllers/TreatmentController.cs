@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using UkupholisaHealthcare.Library.Data;
+using UkupholisaHealthcare.Library.BussinessLogic;
 
 namespace UkupholisaHealthcareWebApp.Controllers
 {

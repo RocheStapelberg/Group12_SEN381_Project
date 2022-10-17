@@ -1,14 +1,23 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using UkupholisaHealthcare.Library.BussinessLogic;
 
 namespace UkupholisaHealthcareWebApp.Controllers
 {
     public class MedicalConditionController : Controller
     {
+        private readonly IMedicalConditionData _medicalConditionData;
+
+        public MedicalConditionController(IMedicalConditionData medicalConditionData)
+        {
+            _medicalConditionData = medicalConditionData;
+        }
+
         // GET: MedicalConditionController
         public ActionResult Index()
         {
-            return View();
+            var medicals = _medicalConditionData.GetAllMedicalCondition();
+            return View(medicals);
         }
 
         // GET: MedicalConditionController/Details/5
@@ -23,41 +32,12 @@ namespace UkupholisaHealthcareWebApp.Controllers
             return View();
         }
 
-        // POST: MedicalConditionController/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
         // GET: MedicalConditionController/Edit/5
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        // POST: MedicalConditionController/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
 
         // GET: MedicalConditionController/Delete/5
         public ActionResult Delete(int id)
@@ -65,19 +45,5 @@ namespace UkupholisaHealthcareWebApp.Controllers
             return View();
         }
 
-        // POST: MedicalConditionController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
     }
 }
