@@ -1,0 +1,32 @@
+﻿@*
+    
+*@
+@{
+    ViewData["Title"] = "Treatments";
+    Layout = "~/Views/Shared/_StaffLayout.cshtml";
+    
+}
+@model ProviderTreatmentDisplayModel
+@{
+    <div class="container">
+        <h2 class="text-center">Treatments provided by <strong>@Model.provider.ProviderName</strong></h2>
+        <hr>
+        <table class="table table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <td>Id</td>
+                    <td>Treatment Name</td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var treatments in Model.treatments)
+                {
+                    <tr>
+                        <td>@treatments.Id</td>
+                        <td>@treatments.TreatmentName</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}

@@ -6,7 +6,10 @@ namespace UkupholisaHealthcare.Library.Data
     {
         void DeleteProvider(int id);
         List<Provider> GetAllProviders();
+        Provider GetProviderById(int id);
         void InsertProvider(Provider provider);
+        List<Treatment> GetTreatmentsByProviderId(int id);
         void UpdateProvider(Provider provider);
+        List<Provider> SearchProviderByName(string providerName);
     }
 }

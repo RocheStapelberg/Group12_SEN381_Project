@@ -19,7 +19,7 @@ namespace UkupholisaHealthcare.Library.Data
 
         public List<Treatment> GetAllTreatments()
         {
-            var output = _sql.LoadData<Treatment, dynamic>("spGetAllTreatments", new { });
+            var output = _sql.LoadData<Treatment, dynamic>("spGetAllTreatment", new { });
             return output;
 
         }

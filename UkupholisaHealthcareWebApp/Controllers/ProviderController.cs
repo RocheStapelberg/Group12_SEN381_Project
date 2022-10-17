@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Reflection;
 using UkupholisaHealthcare.Library.Data;
 using UkupholisaHealthcare.Library.Models;
+using UkupholisaHealthcareWebApp.Models;
 
 namespace UkupholisaHealthcareWebApp.Controllers
 {
@@ -24,7 +26,17 @@ namespace UkupholisaHealthcareWebApp.Controllers
         // GET: ProviderController/Filter/[providerName]
         public ActionResult Filter(string providerName)
         {
-            return View();
+            List<Provider> filteredProviders = _providerData.SearchProviderByName(providerName);
+            return View(filteredProviders);
+        }
+
+        public ActionResult ViewProviderTreatment(int id)
+        {
+            // TODO - Optimize
+            Provider provider = _providerData.GetProviderById(id);
+            var treatments = _providerData.GetTreatmentsByProviderId(id);
+            ProviderTreatmentDisplayModel displayModel = new ProviderTreatmentDisplayModel(provider, treatments);
+            return View(displayModel);
         }
 
         public ActionResult CreateView()
@@ -33,9 +45,10 @@ namespace UkupholisaHealthcareWebApp.Controllers
         }
 
         // GET: ProviderController/Create
-        public ActionResult Create()
+        public ActionResult Create(Provider provider)
         {
-            return View();
+            _providerData.InsertProvider(provider);
+            return RedirectToAction("Index");
         }
 
         // GET: ProviderController/Edit/5

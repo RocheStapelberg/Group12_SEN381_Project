@@ -1,38 +1,42 @@
 ﻿@model UkupholisaHealthcare.Library.Models.Provider
 
 @{
-    ViewData["Title"] = "CreateView";
+    ViewData["Title"] = "Create Page";
     Layout = "~/Views/Shared/_StaffLayout.cshtml";
 }
 
 <h1>Add Provider to Database</h1>
 <hr />
 <div class="container">
-    <form asp-action="CreateView">
+    <form class="" asp-action="Create">
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-        <div class="form-group">
-            <label asp-for="ProviderName" class="control-label"></label>
-            <input asp-for="ProviderName" class="form-control" />
-            <span asp-validation-for="ProviderName" class="text-danger"></span>
+        <div class="row">
+            <div class="col-6 form-group">
+                <label asp-for="ProviderName" class="control-label">Provider Name</label>
+                <input asp-for="ProviderName" class="form-control" required/>
+                <span asp-validation-for="ProviderName" class="text-danger"></span>
+            </div>
+            <div class=" col-6 form-group">
+                <label asp-for="ProviderContact" class="control-label">Provider Contact</label>
+                <input asp-for="ProviderContact" class="form-control" required/>
+                <span asp-validation-for="ProviderContact" class="text-danger"></span>
+            </div>
         </div>
-        <div class="form-group">
-            <label asp-for="ProviderAddress" class="control-label"></label>
-            <input asp-for="ProviderAddress" class="form-control" />
-            <span asp-validation-for="ProviderAddress" class="text-danger"></span>
+        <div class="row mt-3">
+            <div class=" col-6 form-group">
+                <label asp-for="ProviderAddress" class="control-label"> Provider Address</label>
+                <input asp-for="ProviderAddress" class="form-control" required/>
+                <span asp-validation-for="ProviderAddress" class="text-danger"></span>
+            </div>
         </div>
-        <div class="form-group">
-            <label asp-for="ProviderContact" class="control-label"></label>
-            <input asp-for="ProviderContact" class="form-control" />
-            <span asp-validation-for="ProviderContact" class="text-danger"></span>
-        </div>
-        <div class="form-group">
-            <input type="submit" value="Create" class="btn btn-primary" />
+        <div class="row justify-content-center mt-3">
+            <input type="submit" value="Create" class="col-6 btn btn-outline-primary" />
         </div>
     </form>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
+<div class="row justify-content-center mt-3">
+    <a class="col-6 btn btn-outline-info" asp-action="Index">Back to List</a>
 </div>
 
 @section Scripts {

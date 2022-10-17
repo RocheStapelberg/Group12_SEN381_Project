@@ -7,16 +7,25 @@
     ViewData["Title"] = "Home Page";
 }
 <div class="container">
-    <form class="text-center">
+    <form class="text-center" asp-controller="CallController" asp-action="Index">
         <h1 class="display-4">Welcome to Ukupholisa Healthcare</h1>
         <hr />
-        <div class="row mt-lg-5">
-            <h2 class="col-6">Please start a call with us -></h2>
-            <button class="col-6 btn btn-primary btn-lg" type="submit" asp-controller="CallController" asp-action="Index" data-toggle="tooltip" data-placement="top" title="Use this to call us">Simulate Call</button>
+        <div class="row mt-5">
+            <div class="col-2">
+                <label class="form-label h4" for="clientEmail">Client Email:</label>
+            </div>
+            <div class="col-7">
+                <input class="form-control" type="text" name="clientEmail" placeholder="Client Email" required />
+            </div>
+            <div class="col-3 justify-content-center">
+                <input class="col-6 btn btn-outline-primary" type="submit" value="Start a Call" data-toggle="tooltip" data-placement="top" title="Use this to call us" />
+            </div>
         </div>
+    </form>
+    <form class="text-center">
         <div class="row mt-4">
-            <h2 class="col-6">New Client? Press Here -></h2>
-            <input class="col-6 btn btn-success btn-lg" type="submit" asp-controller="Client" asp-action="CreateClient" value="New Client Call" />
+            <h4 class="col-6">New Client? Press Here -></h4>
+            <input class="col-6 btn btn-outline-success btn-lg" type="submit" asp-controller="Client" asp-action="CreateClient" value="New Client Call" />
         </div>
     </form>
 </div>
