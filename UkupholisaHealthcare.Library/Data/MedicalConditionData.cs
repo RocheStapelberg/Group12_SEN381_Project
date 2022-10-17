@@ -8,7 +8,7 @@ using UkupholisaHealthcare.Library.Models;
 
 namespace UkupholisaHealthcare.Library.Data
 {
-    public class MedicalCondition : IMedicalCondition
+    public class MedicalConditionData : IMedicalCondition
     {
         private readonly ISqlDataAccess _sql;
 
@@ -17,20 +17,20 @@ namespace UkupholisaHealthcare.Library.Data
             _sql = sql;
         }
 
-        public List<MedicalCondition> GetAllMedicalCondition()
+        public List<MedicalConditionData> GetAllMedicalCondition()
         {
-            var output = _sql.LoadData<MedicalCondition, dynamic>("spGetAllMedicalCondition", new { });
+            var output = _sql.LoadData<MedicalConditionData, dynamic>("spGetAllMedicalCondition", new { });
             return output;
 
         }
-        public void InsertMedicalCondition(MedicalCondition medicalCondition)
+        public void InsertMedicalCondition(MedicalConditionData medicalConditionData)
         {
-            _sql.RunStoredProcedure("spInsertMedicalCondition", medicalCondition);
+            _sql.RunStoredProcedure("spInsertMedicalCondition", medicalConditionData);
         }
 
-        public void UpdateMedicalCondition(MedicalCondition medicalCondition)
+        public void UpdateMedicalCondition(MedicalConditionData medicalConditionData)
         {
-            _sql.RunStoredProcedure("spUpdateMedicalCondition", medicalCondition);
+            _sql.RunStoredProcedure("spUpdateMedicalCondition", medicalConditionData);
         }
 
         public void DeleteMedicalCondition(int id)
