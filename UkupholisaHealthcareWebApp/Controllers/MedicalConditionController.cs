@@ -22,12 +22,13 @@ namespace UkupholisaHealthcareWebApp.Controllers
             List<MedicalCondition> MedicalConditionList = _medicalConditionData.GetAllMedicalCondition();
             return View(MedicalConditionList);
         }
+        // GET: MedicalConditionController/Details/5
         public ActionResult ViewMedicalConditions(int id)
         {
             // TODO - Optimize----------------Roche plz check this 
             MedicalCondition medicalCondition = _medicalConditionData.GetMedicalConditionById(id);
             var treatments = _medicalConditionData.GetMedicalConditionById(id);
-            ProviderTreatmentDisplayModel displayModel = new ProviderTreatmentDisplayModel(provider, treatments);
+            MedicalConditionDisplayModel displayModel = new MedicalConditionDisplayModel(medicalCondition, treatments);
             return View(displayModel);
         }
 
@@ -36,18 +37,8 @@ namespace UkupholisaHealthcareWebApp.Controllers
             _providerData.InsertMedicalCondition(medicalCondition);
             return RedirectToAction("Index");
         }
-        // GET: MedicalConditionController/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
-
-        // GET: MedicalConditionController/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
+        
+       
         // GET: MedicalConditionController/Edit/5
         public ActionResult Edit(int id)
         {
