@@ -2,6 +2,9 @@
 using Microsoft.AspNetCore.Mvc;
 using UkupholisaHealthcare.Library.BussinessLogic;
 
+using UkupholisaHealthcare.Library.Models;
+using UkupholisaHealthcareWebApp.Models;
+
 namespace UkupholisaHealthcareWebApp.Controllers
 {
     public class MedicalConditionController : Controller
@@ -14,8 +17,25 @@ namespace UkupholisaHealthcareWebApp.Controllers
         }
 
         // GET: MedicalConditionController
-       
+        public ActionResult Index()
+        {
+            List<MedicalCondition> MedicalConditionList = _medicalConditionData.GetAllMedicalCondition();
+            return View(MedicalConditionList);
+        }
+        public ActionResult ViewMedicalConditions(int id)
+        {
+            // TODO - Optimize----------------Roche plz check this 
+            MedicalCondition medicalCondition = _medicalConditionData.GetMedicalConditionById(id);
+            var treatments = _medicalConditionData.GetMedicalConditionById(id);
+            ProviderTreatmentDisplayModel displayModel = new ProviderTreatmentDisplayModel(provider, treatments);
+            return View(displayModel);
+        }
 
+        public ActionResult Create(MedicalCondition medicalCondition)
+        {
+            _providerData.InsertMedicalCondition(medicalCondition);
+            return RedirectToAction("Index");
+        }
         // GET: MedicalConditionController/Details/5
         public ActionResult Details(int id)
         {
@@ -38,8 +58,8 @@ namespace UkupholisaHealthcareWebApp.Controllers
         // GET: MedicalConditionController/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            _providerData.DeleteMedicalCondition(id);
+            return RedirectToAction("Index");
         }
-
     }
 }
