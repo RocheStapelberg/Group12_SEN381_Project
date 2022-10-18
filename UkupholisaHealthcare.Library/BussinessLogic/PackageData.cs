@@ -8,7 +8,7 @@ using UkupholisaHealthcare.Library.Models;
 
 namespace UkupholisaHealthcare.Library.BussinessLogic
 {
-    public class PackageData
+    public class PackageData : IPackageData
     {
         private readonly ISqlDataAccess _sql;
 
