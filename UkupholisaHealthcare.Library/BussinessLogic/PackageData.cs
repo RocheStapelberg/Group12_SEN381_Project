@@ -32,7 +32,7 @@ namespace UkupholisaHealthcare.Library.BussinessLogic
             _sql.RunStoredProcedure("spInsertPackage", package);
         }
 
-        public void UpdatePackage(MedicalCondition package)
+        public void UpdatePackage(Package package)
         {
             _sql.RunStoredProcedure("spUpdatePackage", package);
         }
