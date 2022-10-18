@@ -42,7 +42,7 @@ BEGIN
 END
 GO
 -- UPDATE
-CREATE PROCEDURE spInsertPackage
+CREATE PROCEDURE spUpdatePackage
     @Id INT,
 	@PackageName NVARCHAR(50), 
 	@PackageDescription NVARCHAR(max), 

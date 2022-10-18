@@ -14,11 +14,7 @@ namespace UkupholisaHealthcareWebApp.Controllers
         }
 
         // GET: MedicalConditionController
-        public ActionResult Index()
-        {
-            var medicals = _medicalConditionData.GetAllMedicalCondition();
-            return View(medicals);
-        }
+       
 
         // GET: MedicalConditionController/Details/5
         public ActionResult Details(int id)

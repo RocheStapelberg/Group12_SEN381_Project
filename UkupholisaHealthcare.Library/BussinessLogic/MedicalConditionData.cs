@@ -16,6 +16,11 @@ namespace UkupholisaHealthcare.Library.BussinessLogic
         {
             _sql = sql;
         }
+        public MedicalCondition GetMedicalConditionById(int id)
+        {
+            var output = _sql.LoadData<MedicalCondition, dynamic>("spGetMedicalConditionById", new { id });
+            return output[0];
+        }
 
         public List<MedicalCondition> GetAllMedicalCondition()
         {
