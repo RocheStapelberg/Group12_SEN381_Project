@@ -8,10 +8,10 @@
 <h1 class="text-center">Employee Management</h1>
 <hr/>
 <p>
-    <a asp-action="Create">Create New Employee</a>
+    <a class="btn btn-outline-primary" asp-action="Create">Create New Employee</a>
 </p>
 <table class="table">
-    <thead>
+    <thead class="table-dark">
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.Id)
@@ -22,7 +22,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.Password)
             </th>
-            <th></th>
+            <th>
+                Manage
+            </th>
         </tr>
     </thead>
     <tbody>

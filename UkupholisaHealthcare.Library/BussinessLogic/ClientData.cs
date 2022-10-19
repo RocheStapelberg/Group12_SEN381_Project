@@ -8,7 +8,7 @@ using UkupholisaHealthcare.Library.Models;
 
 namespace UkupholisaHealthcare.Library.BussinessLogic
 {
-    public class ClientData
+    public class ClientData : IClientData
     {
         //TODO - Add stored procs
         private readonly ISqlDataAccess _sql;
@@ -17,14 +17,51 @@ namespace UkupholisaHealthcare.Library.BussinessLogic
         {
             _sql = sql;
         }
+
+        public List<FamilyLink> GetFamilies()
+        {
+            var output = _sql.LoadData<FamilyLink, dynamic>("spGetAllFamilies", new { });
+            return output;
+        }
+
+        public void InsertFamily(FamilyLink familyLink)
+        {
+            _sql.RunStoredProcedure("", familyLink);
+        }
+
+        public void UpdateFamily(FamilyLink familyLink)
+        {
+            _sql.RunStoredProcedure("", familyLink);
+        }
+
+        public void DeleteFamily(int id)
+        {
+            _sql.RunStoredProcedure("", id);
+        }
+
+        public List<Client> GetClientsByFamilyId(int id)
+        {
+            var output = _sql.LoadData<Client, dynamic>("spGetClientsByFamilyId", new { id });
+            return output;
+        }
+
         public List<Client> GetClients()
         {
-            var output = _sql.LoadData<Client, dynamic>("", new { });
-
+            var output = _sql.LoadData<Client, dynamic>("spGetAllClient", new { });
             return output;
         }
 
         public void SaveClient(Client client)
+        {
+            _sql.RunStoredProcedure("", client);
+        }
+
+        public void DeleteClient(int id)
+        {
+            _sql.RunStoredProcedure("", id);
+        }
+
+        public void UpdateClient(Client client)
         {
             _sql.RunStoredProcedure("", client);
         }

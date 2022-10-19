@@ -1,83 +1,30 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using UkupholisaHealthcare.Library.BussinessLogic;
+using UkupholisaHealthcare.Library.Models;
 
 namespace UkupholisaHealthcareWebApp.Controllers
 {
     public class ClientController : Controller
     {
+        private readonly IClientData _clientData;
+
+        public ClientController(IClientData clientData)
+        {
+            _clientData = clientData;
+        }
+
         // GET: ClientController
         public ActionResult Index()
         {
-            return View();
+            List<FamilyLink> families = _clientData.GetFamilies();
+            return View(families);
         }
 
-        // GET: ClientController/Details/5
-        public ActionResult Details(int id)
+        public ActionResult ViewMembers(int id)
         {
-            return View();
-        }
-
-        // GET: ClientController/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: ClientController/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: ClientController/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        // POST: ClientController/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: ClientController/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: ClientController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            List<Client> members = _clientData.GetClientsByFamilyId(id);
+            return View(members);
         }
     }
 }

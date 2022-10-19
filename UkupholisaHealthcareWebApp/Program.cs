@@ -12,9 +12,10 @@ namespace UkupholisaHealthcareWebApp
             // Add services to the container.
             builder.Services.AddControllersWithViews();
 
-            // Custom Services //
+            // Custom Services for dependency injection//
             builder.Services.AddTransient<ISqlDataAccess, SqlDataAccess>();
             builder.Services.AddTransient<IUserData, UserData>();
+            builder.Services.AddTransient<IClientData, ClientData>();
             builder.Services.AddTransient<IProviderData, ProviderData>();
             builder.Services.AddTransient<ITreatmentData, TreatmentData>();
             builder.Services.AddTransient<IMedicalConditionData, MedicalConditionData>();

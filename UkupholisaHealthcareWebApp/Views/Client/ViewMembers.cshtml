@@ -1,0 +1,96 @@
+﻿@using UkupholisaHealthcare.Library.Models
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+
+*@
+@{
+    Layout = "~/Views/Shared/_StaffLayout.cshtml";
+}
+@model List<Client>
+@{
+    <div class="container">
+        <h1 class="text-center">Members of the <strong>@Model[0].Surname</strong> Family</h1>
+        <hr />
+        <a class="btn btn-outline-primary" asp-action="CreateView">Add new Member to Family</a>
+        <a class="btn btn-outline-primary" asp-action="Index">Back to Family View</a>
+        <div class="row">
+            <form class="form-inline" asp-action="Filter">
+                <div class="row mt-3">
+                    <div class="col-8">
+                        <input class="form-control" type="text" id="memberName" name="memberName" placeholder="Search for a Member" required />
+                    </div>
+                    <div class="col-4">
+                        <input class="btn btn-outline-primary btn-block" type="submit" value="Search" />
+                    </div>
+                </div>
+            </form>
+        </div>
+        <hr />
+        <table class="table table-hover table-responsive">
+            <thead class="table-dark">
+                <tr>
+                    <td>Id</td>
+                    <td>Firstname</td>
+                    <td>Surname</td>
+                    <td>Age</td>
+                    <td>Gender</td>
+                    <td>Email</td>
+                    <td>MemberType</td>
+                    <td>Active Member</td>
+                    <td>Details and Policy</td>
+                    <td>Manage</td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var member in Model)
+                {
+                    <tr class="align-middle">
+                        <td>@member.Id</td>
+                        <td>@member.Firstname</td>
+                        <td>@member.Surname</td>
+                        <td>@member.Age</td>
+                        <td>@member.Gender</td>
+                        <td>@member.EmailAddress</td>
+                        @if (member.MemberType == "AcountHolder")
+                        {
+                            <td>
+                                <span class="badge bg-primary">AccountHolder</span>
+                            </td>
+                        }
+                        else if(member.MemberType == "Adult")
+                        {
+                            <td>
+                                <span class="badge bg-warning">@member.MemberType</span>
+                            </td>
+                        }
+                        else
+                        {
+                            <td>
+                                <span class="badge bg-info">@member.MemberType</span>
+                            </td>
+                        }                       
+                        @if (@member.IsActive)
+                        {
+                            <td>
+                                <p><span class="badge bg-success">Active</span></p>
+                            </td>
+                        }
+                        else
+                        {
+                            <td>
+                                <span class="badge bg-danger">Not Active</span>
+                            </td>
+                        }
+                        <td>
+                            <a class="btn btn-outline-dark" asp-action="ViewDetails" asp-route-id="@member.Id">View Details and Policy</a>
+                        </td>
+                        <td>
+                            <a class="btn btn-outline-info" asp-action="EditView" asp-route-id="@member.Id">Edit</a>
+                            <a class="btn btn-outline-danger" asp-action="Delete" asp-route-id="@member.Id">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
