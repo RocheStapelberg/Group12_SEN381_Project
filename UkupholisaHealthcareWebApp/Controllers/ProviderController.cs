@@ -11,6 +11,7 @@ namespace UkupholisaHealthcareWebApp.Controllers
     {
         private readonly IProviderData _providerData;
 
+        // Injects class for use in provider controller
         public ProviderController(IProviderData providerData)
         {
             _providerData = providerData;
@@ -51,10 +52,16 @@ namespace UkupholisaHealthcareWebApp.Controllers
             return RedirectToAction("Index");
         }
 
-        // GET: ProviderController/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult EditView(int id)
         {
-            return View();
+            Provider provider = _providerData.GetProviderById(id);
+            return View(provider);
+        }
+
+        public ActionResult Edit(Provider provider)
+        {
+            _providerData.UpdateProvider(provider);
+            return RedirectToAction("Index");
         }
 
 

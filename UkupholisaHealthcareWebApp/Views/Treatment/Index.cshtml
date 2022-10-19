@@ -5,13 +5,12 @@
     Layout = "~/Views/Shared/_StaffLayout.cshtml";
 }
 
-<h1 class="text-center">Treatments</h1>
+<h1 class="text-center">Treatment manager</h1>
 <hr />
-
 <p>
-    <a asp-action="Create">Create New</a>
+    <a class="btn btn-outline-primary" asp-action="Create">Create new Treatment</a>
 </p>
-<table class="table">
+<table class="table table-hover">
     <thead>
         <tr>
             <th>
@@ -23,25 +22,26 @@
             <th>
                 @Html.DisplayNameFor(model => model.Description)
             </th>
-            <th></th>
+            <th>
+                Manage
+            </th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
+@foreach (var treatment in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Id)
+                @Html.DisplayFor(modelItem => treatment.Id)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.TreatmentName)
+                @Html.DisplayFor(modelItem => treatment.TreatmentName)
             </td>
             <td>
-                <input class="btn btn-outline-success" type="submit" value="View Description">
+                    <a class="btn btn-outline-success" asp-action="FullView" asp-route-id="@treatment.Id">View Treatment</a>
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                <a class="btn btn-outline-info" asp-action="EditView" asp-route-id="@treatment.Id">Edit</a>
+                <a class="btn btn-outline-danger" asp-action="Delete" asp-route-id="@treatment.Id">Delete</a>
             </td>
         </tr>
 }

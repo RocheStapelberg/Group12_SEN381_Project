@@ -25,31 +25,23 @@ namespace UkupholisaHealthcareWebApp.Controllers
         // GET: MedicalConditionController/Details/5
         public ActionResult ViewMedicalConditions(int id)
         {
-            // TODO - Optimize----------------Roche plz check this 
-            MedicalCondition medicalCondition = _medicalConditionData.GetMedicalConditionById(id);
-            var treatments = _medicalConditionData.GetMedicalConditionById(id);
-            MedicalConditionDisplayModel displayModel = new MedicalConditionDisplayModel(medicalCondition, treatments);
-            return View(displayModel);
+            return View();
         }
 
         public ActionResult Create(MedicalCondition medicalCondition)
         {
-            _providerData.InsertMedicalCondition(medicalCondition);
             return RedirectToAction("Index");
         }
         
-       
         // GET: MedicalConditionController/Edit/5
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-
         // GET: MedicalConditionController/Delete/5
         public ActionResult Delete(int id)
         {
-            _providerData.DeleteMedicalCondition(id);
             return RedirectToAction("Index");
         }
     }
