@@ -7,41 +7,50 @@
 @model DashboardViewModel
 @{
     <div class="container">
-                    <h1 class="text-center">Dashboard</h1>
-                    <hr>
-                    <div class="row">
-                        <span class="col-5 badge bg-primary" style="font-size:20px;">Current Client Count: @Model.clientList.Count</span>
-                        <div class="col-2"></div>
-                        <span class="col-5 badge bg-success" style="font-size:20px;">Annual Policy income: R50,000,000</span>
+        <h1 class="text-center">Dashboard</h1>
+        <hr>
+        <div class="row">
+            <span class="col-5 badge bg-primary" style="font-size:20px;">Current Client Count: @Model.clientList.Count</span>
+            <div class="col-2"></div>
+            <span class="col-5 badge bg-success" style="font-size:20px;">Annual Policy income: R50,000,000</span>
+        </div>
+        <div class="row mt-3">
+            <span class="col-5 badge bg-info" style="font-size:20px;">Total Policies: 10</span>
+            <div class="col-2"></div>
+            <span class="col-5 badge bg-danger" style="font-size:20px;">Total Providers: 5</span>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-header">
+                        Member Type Count
                     </div>
-                    <div class="row mt-3">
-                        <span class="col-5 badge bg-info" style="font-size:20px;">Total Policies: 10</span>
-                        <div class="col-2"></div>
-                        <span class="col-5 badge bg-warning" style="font-size:20px;">Total Providers: 5</span>
+                    <div class="card-body">
+                        <canvas class="my-4 h-25" id="bar"></canvas>
                     </div>
-                    <hr>
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <div class="card">
-                                <div class="card-header">
-                                    Member Type Count
-                                </div>
-                                <div class="card-body">
-                                    <canvas class="my-4 h-25" id="bar"></canvas>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="card">
-                                <div class="card-header">
-                                    Pie Chart
-                                </div>
+                </div>
+                <div class="card mt-2">
+                    <div class="card-header">
+                        Monthly Profits
+                    </div>
+                    <div class="card-body">
+                        <canvas class="my-4 h-25" id="line"></canvas>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-header">
+                        Best Selling Policies
+                    </div>
                     <div class="card-body h-25">
-                                    <canvas class="my-4 h-100" id="pie" ></canvas>
-                                </div>
-                            </div>
-                        </div>
+                        <canvas class="my-4 h-100" id="pie"></canvas>
                     </div>
+                </div>
+            </div>
+        </div>
     </div>
 }
 
@@ -62,7 +71,30 @@
                 datasets: [{
                     label: 'Member Types',
                     data: countMembers,
-                    backgroundColor: 'rgba(120, 101, 203, 0.8)',
+                    backgroundColor: ["rgba(32, 241, 250, 0.8)", "rgba(32, 249, 163, 0.8)", "rgba(249, 32, 109, 0.8)"],
+
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        })
+
+        var barchart = document.getElementById('line').getContext('2d');
+        var mybarchart = new Chart(barchart, {
+            type: 'line',
+            data: {
+                labels: ["January","February", "March","April","May","June","July","August","September","October","November","December"],
+                datasets: [{
+                    label: 'Monthy Profits',
+                    data: [20000,40000,100000,200000,15000,100000,300000,60000,450000,90000,76000,12000],
+                    borderColor: "rgba(32, 250, 87, 0.8)",
 
                 }]
             },
@@ -85,7 +117,7 @@
                 datasets: [{
                     label: 'Pie Chart',
                     data: [100, 200, 300],
-                    backgroundColor: 'rgba(77,177,77, 0.8)',
+                    backgroundColor: ['rgba(249, 168, 32, 0.8)','rgba(132, 249, 32, 0.8)','rgba(32, 249, 163, 0.8)'],
 
                 }]
             },
