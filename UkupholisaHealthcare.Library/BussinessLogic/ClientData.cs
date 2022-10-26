@@ -45,6 +45,12 @@ namespace UkupholisaHealthcare.Library.BussinessLogic
             return output;
         }
 
+        public Client GetClientByEmail(string email)
+        {
+            var output = _sql.LoadData<Client, dynamic>("spGetClientByEmail", new { email });
+            return output[0];
+        }
+
         public List<Client> GetClients()
         {
             var output = _sql.LoadData<Client, dynamic>("spGetAllClient", new { });

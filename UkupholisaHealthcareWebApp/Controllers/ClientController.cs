@@ -26,5 +26,10 @@ namespace UkupholisaHealthcareWebApp.Controllers
             List<Client> members = _clientData.GetClientsByFamilyId(id);
             return View(members);
         }
+
+        public ActionResult CreateClient()
+        {
+            return View();
+        }
     }
 }

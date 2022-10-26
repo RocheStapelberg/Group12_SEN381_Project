@@ -9,6 +9,7 @@ namespace UkupholisaHealthcare.Library.BussinessLogic
         List<Client> GetClients();
         List<Client> GetClientsByFamilyId(int id);
         List<FamilyLink> GetFamilies();
+        Client GetClientByEmail(string email);
         void InsertFamily(FamilyLink familyLink);
         void SaveClient(Client client);
         void UpdateClient(Client client);
