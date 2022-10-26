@@ -14,5 +14,6 @@ namespace UkupholisaHealthcare.Library.BussinessLogic
         void SaveClient(Client client);
         void UpdateClient(Client client);
         void UpdateFamily(FamilyLink familyLink);
+        List<Client> SearchClientByName(string FirstName);
     }
 }

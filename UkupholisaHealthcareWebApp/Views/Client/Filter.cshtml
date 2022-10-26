@@ -9,7 +9,7 @@
 @model List<Client>
 @{
     <div class="container">
-        <h1 class="text-center">Members of the <strong>@Model[0].Surname</strong> Family</h1>
+       
         <hr />
         <a class="btn btn-outline-primary" asp-action="CreateView">Add new Member to Family</a>
         <a class="btn btn-outline-primary" asp-action="Index">Back to Family View</a>
@@ -17,7 +17,7 @@
             <form class="form-inline" asp-action="Filter">
                 <div class="row mt-3">
                     <div class="col-8">
-                        <input class="form-control" type="text" id="FirstName" name="FirstName" placeholder="Search for a Member" required />
+                        <input class="form-control" type="text" id="memberName" name="memberName" placeholder="Search for a Member" required />
                     </div>
                     <div class="col-4">
                         <input class="btn btn-outline-primary btn-block" type="submit" value="Search" />
@@ -57,7 +57,7 @@
                                 <span class="badge bg-primary">AccountHolder</span>
                             </td>
                         }
-                        else if(member.MemberType == "Adult")
+                        else if (member.MemberType == "Adult")
                         {
                             <td>
                                 <span class="badge bg-warning">@member.MemberType</span>
@@ -68,7 +68,7 @@
                             <td>
                                 <span class="badge bg-info">@member.MemberType</span>
                             </td>
-                        }                       
+                        }
                         @if (@member.IsActive)
                         {
                             <td>
