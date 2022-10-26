@@ -37,5 +37,12 @@ namespace UkupholisaHealthcare.Library.BussinessLogic
         {
             _sql.RunStoredProcedure("spDeleteTreatment", new { id });
         }
+
+        public List<Treatment> SearchTreatmentByName(string TreatmentName)
+        {
+            var output = _sql.LoadData<Treatment, dynamic>("spSearchTreatmentByName", new { TreatmentName });
+            return output;
+        }
+
     }
 }

@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using UkupholisaHealthcare.Library.BussinessLogic;
+using UkupholisaHealthcare.Library.Models;
 
 namespace UkupholisaHealthcareWebApp.Controllers
 {
@@ -18,6 +19,12 @@ namespace UkupholisaHealthcareWebApp.Controllers
         {
             var treatments = _treatmentData.GetAllTreatments();
             return View(treatments);
+        }
+
+        public ActionResult Filter(string TreatmentName)
+        {
+            List<Treatment> filteredTreatment = _treatmentData.SearchTreatmentByName(TreatmentName);
+            return View(filteredTreatment);
         }
     }
 }
