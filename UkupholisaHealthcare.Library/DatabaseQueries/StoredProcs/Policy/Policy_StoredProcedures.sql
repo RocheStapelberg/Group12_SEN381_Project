@@ -28,39 +28,43 @@ END
 GO
 -- INSERT
 CREATE PROCEDURE spInsertPolicy
-    @Family_Id  INT,
+   
 	@PolicyName NVARCHAR(50), 
 	@Description NVARCHAR(max), 
-	@PolicyPrice money,
-	@isApproved bit
+	@PolicyMonthlyPrice money ,
+	@isApproved bit,
+	@isActive bit
+
 AS
 BEGIN
 	SET NOCOUNT ON;
     -- Insert SP for Policy
-	INSERT INTO [Policy](Family_id,PolicyName, [Description] ,PolicyPrice,isApproved)
-	VALUES (@Family_Id,@PolicyName, @Description, @PolicyPrice,@isApproved);
+	INSERT INTO [Policy](PolicyName, [Description] ,PolicyMonthlyPrice,isApproved,isActive)
+	VALUES (@PolicyName, @Description, @PolicyMonthlyPrice,@isApproved,@isActive);
 END
 GO
 -- UPDATE
 CREATE PROCEDURE spUpdatePolicy
 @Id INT,
-    @Family_Id  INT,
-	@PolicyName NVARCHAR(50), 
+    @PolicyName NVARCHAR(50), 
 	@Description NVARCHAR(max), 
-	@PolicyPrice money,
-	@isApproved bit
+	@PolicyMonthlyPrice money ,
+	@isApproved bit,
+	@isActive bit
 AS
 BEGIN
 	SET NOCOUNT ON;
     -- Update SP for Policy
 	UPDATE [Policy] 
-	SET( 
-	Family_id = @Family_Id, 
+	SET
+	 
 	PolicyName=@PolicyName,
 	[Description]=@Description,
-	PolicyPrice=@PolicyPrice,
+	PolicyMonthlyPrice=@PolicyMonthlyPrice,
 	isApproved=@isApproved,
-	)
+	isActive=@isActive
+
+	
 	WHERE
 	Id=@Id
 END
