@@ -65,5 +65,12 @@ namespace UkupholisaHealthcare.Library.BussinessLogic
         {
             _sql.RunStoredProcedure("", client);
         }
+
+        public List<Client> SearchClientByName(string FirstName)
+        {
+            var output = _sql.LoadData<Client, dynamic>("spSearchClientByName", new { FirstName });
+            return output;
+        }
+
     }
 }
