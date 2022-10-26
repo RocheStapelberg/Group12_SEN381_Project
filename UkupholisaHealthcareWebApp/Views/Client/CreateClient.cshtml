@@ -1,0 +1,71 @@
+﻿@using UkupholisaHealthcare.Library.Models
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model Client
+@{
+    ViewBag.GENDERS = new SelectList(new string[] { "Male", "Female", "Other" });
+    ViewBag.MEMBERTYPES = new SelectList(new string[] { "AccoutHolder", "Adult", "Child" });
+    <div class="container">
+        <h2>Please Give us your details</h2>
+        <hr>
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="row">
+                <div class="col-4 form-group">
+                    <label asp-for="Firstname" class="control-label">First Name</label>
+                    <input asp-for="Firstname" class="form-control" required />
+                    <span asp-validation-for="Firstname" class="text-danger"></span>
+                </div>
+                <div class=" col-4 form-group">
+                    <label asp-for="Surname" class="control-label">Surname</label>
+                    <input asp-for="Surname" class="form-control" required />
+                    <span asp-validation-for="Surname" class="text-danger"></span>
+                </div>
+                <div class=" col-4 form-group">
+                    <label asp-for="Gender" class="control-label">Gender</label>
+                    @Html.DropDownListFor(model => model.Gender, ViewBag.GENDERS as SelectList, new { @class = "form-control form-select" })
+                    <span asp-validation-for="Gender" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4 form-group">
+                    <label asp-for="Age" class="control-label">Age</label>
+                    <input asp-for="Age" class="form-control" required min="10" />
+                    <span asp-validation-for="Age" class="text-danger"></span>
+                </div>
+                <div class="col-4 form-group">
+                    <label asp-for="Cellphone" class="control-label">Cellphone</label>
+                    <input asp-for="Cellphone" class="form-control" required />
+                    <span asp-validation-for="Cellphone" class="text-danger"></span>
+                </div>
+                <div class=" col-4 form-group">
+                    <label asp-for="MemberType" class="control-label">Gender</label>
+                    @Html.DropDownListFor(model => model.MemberType, ViewBag.MEMBERTYPES as SelectList, new { @class = "form-control form-select" })
+                    <span asp-validation-for="MemberType" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col form-group">
+                    <label asp-for="EmailAddress" class="control-label">Email</label>
+                    <input asp-for="EmailAddress" class="form-control" type="email" required />
+                    <span asp-validation-for="EmailAddress" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col form-group">
+                    <label asp-for="Address" class="control-label">Home Address</label>
+                    <input asp-for="Address" class="form-control" required />
+                    <span asp-validation-for="Address" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row justify-content-center mt-3">
+                <input type="submit" value="Submit Info" class="col-6 btn btn-outline-primary" />
+            </div>
+        </form>
+    </div>
+
+    <div class="row justify-content-center mt-3">
+        <a class="col-6 btn btn-outline-info" asp-action="Index">Back to Home</a>
+    </div>
+}

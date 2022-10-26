@@ -20,11 +20,23 @@ namespace UkupholisaHealthcareWebApp.Controllers
             List<FamilyLink> families = _clientData.GetFamilies();
             return View(families);
         }
+        public ActionResult Filter(string FirstName)
+        {
+            List<Client> filteredClients = _clientData.SearchClientByName(FirstName);
+            return View(filteredClients);
+        }
+
+
 
         public ActionResult ViewMembers(int id)
         {
             List<Client> members = _clientData.GetClientsByFamilyId(id);
             return View(members);
+        }
+
+        public ActionResult CreateClient()
+        {
+            return View();
         }
     }
 }

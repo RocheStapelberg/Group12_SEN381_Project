@@ -45,6 +45,12 @@ namespace UkupholisaHealthcare.Library.BussinessLogic
             return output;
         }
 
+        public Client GetClientByEmail(string email)
+        {
+            var output = _sql.LoadData<Client, dynamic>("spGetClientByEmail", new { email });
+            return output[0];
+        }
+
         public List<Client> GetClients()
         {
             var output = _sql.LoadData<Client, dynamic>("spGetAllClient", new { });
@@ -65,5 +71,12 @@ namespace UkupholisaHealthcare.Library.BussinessLogic
         {
             _sql.RunStoredProcedure("", client);
         }
+
+        public List<Client> SearchClientByName(string FirstName)
+        {
+            var output = _sql.LoadData<Client, dynamic>("spSearchClientByName", new { FirstName });
+            return output;
+        }
+
     }
 }

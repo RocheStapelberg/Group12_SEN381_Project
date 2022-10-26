@@ -91,3 +91,14 @@ BEGIN
 	WHERE Id = @Id;
 END
 GO
+-- SEARCH CLIENT 
+CREATE PROCEDURE spSearchClientByName
+    @FirstName NVARCHAR(50)
+AS
+BEGIN
+    SELECT *
+    FROM [Client]
+    WHERE [Firstname] LIKE '%' + @FirstName + '%';
+END
+
+
