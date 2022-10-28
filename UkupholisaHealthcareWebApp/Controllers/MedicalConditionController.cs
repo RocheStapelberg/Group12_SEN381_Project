@@ -44,5 +44,11 @@ namespace UkupholisaHealthcareWebApp.Controllers
         {
             return RedirectToAction("Index");
         }
+
+        public ActionResult Filter(string ConditionName)
+        {
+            List<MedicalCondition> filteredMedicalConditions = _medicalConditionData.SearchMedicalConditionByName(ConditionName);
+            return View(filteredMedicalConditions);
+        }
     }
 }

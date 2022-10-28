@@ -43,5 +43,11 @@ namespace UkupholisaHealthcare.Library.BussinessLogic
             _sql.RunStoredProcedure("spDeleteMedicalCondition", new { id });
         }
 
+        public List<MedicalCondition> SearchMedicalConditionByName(string ConditionName)
+        {
+            var output = _sql.LoadData<MedicalCondition, dynamic>("spSearchMedicalConditionByName", new { ConditionName });
+            return output;
+        }
+
     }
 }
