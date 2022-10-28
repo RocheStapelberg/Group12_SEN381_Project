@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace UkupholisaHealthcare.Library.Models
 {
-    internal class Policy
+    public class Policy
     {
         public int Id { get; set; }
-        public int FK_FamilyLink_Id { get; set; }
         public string? PolicyName { get; set; }
         public string? Description { get; set; }
-        public decimal PolicyPrice { get; set; }
+        public decimal PolicyMonthlyPrice { get; set; }
         public bool? IsApproved { get; set; }
+        public bool? IsActive { get; set; }
     }
 }

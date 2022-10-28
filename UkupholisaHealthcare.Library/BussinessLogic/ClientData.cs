@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using UkupholisaHealthcare.Library.DataAccess;
+﻿using UkupholisaHealthcare.Library.DataAccess;
 using UkupholisaHealthcare.Library.Models;
 
 namespace UkupholisaHealthcare.Library.BussinessLogic
@@ -24,9 +19,16 @@ namespace UkupholisaHealthcare.Library.BussinessLogic
             return output;
         }
 
+        public FamilyLink GetFamilyByFamilyName(string familyName)
+        {
+            var output = _sql.LoadData<FamilyLink, dynamic>("spGetFamilyByFamilyName", new { familyName });
+            return output[0];
+            
+        }
+
         public void InsertFamily(FamilyLink familyLink)
         {
-            _sql.RunStoredProcedure("", familyLink);
+            _sql.RunStoredProcedure("spInsertFamily", familyLink);
         }
 
         public void UpdateFamily(FamilyLink familyLink)
@@ -59,7 +61,7 @@ namespace UkupholisaHealthcare.Library.BussinessLogic
 
         public void SaveClient(Client client)
         {
-            _sql.RunStoredProcedure("", client);
+            _sql.RunStoredProcedure("spInsertClient", client);
         }
 
         public void DeleteClient(int id)

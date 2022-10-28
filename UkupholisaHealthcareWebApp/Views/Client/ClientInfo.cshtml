@@ -9,7 +9,7 @@
     <div class="container">
         <h2>Please Give us your details</h2>
         <hr>
-        <form asp-action="Create">
+        <form asp-action="CreateClient">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="row">
                 <div class="col-4 form-group">
@@ -63,9 +63,8 @@
                 <input type="submit" value="Submit Info" class="col-6 btn btn-outline-primary" />
             </div>
         </form>
-    </div>
-
-    <div class="row justify-content-center mt-3">
-        <a class="col-6 btn btn-outline-info" asp-action="Index">Back to Home</a>
+        <div class="row justify-content-center mt-3">
+            <a class="col-6 btn btn-outline-info" asp-action="Index">Back to Home</a>
+        </div>
     </div>
 }

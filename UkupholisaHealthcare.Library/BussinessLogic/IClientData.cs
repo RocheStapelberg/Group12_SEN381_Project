@@ -8,6 +8,7 @@ namespace UkupholisaHealthcare.Library.BussinessLogic
         void DeleteFamily(int id);
         List<Client> GetClients();
         List<Client> GetClientsByFamilyId(int id);
+        FamilyLink GetFamilyByFamilyName(string familyName);
         List<FamilyLink> GetFamilies();
         Client GetClientByEmail(string email);
         void InsertFamily(FamilyLink familyLink);

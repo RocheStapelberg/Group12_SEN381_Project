@@ -16,6 +16,7 @@ namespace UkupholisaHealthcareWebApp
             builder.Services.AddTransient<ISqlDataAccess, SqlDataAccess>();
             builder.Services.AddTransient<IUserData, UserData>();
             builder.Services.AddTransient<IClientData, ClientData>();
+            builder.Services.AddTransient<IPolicyData, PolicyData>();
             builder.Services.AddTransient<IProviderData, ProviderData>();
             builder.Services.AddTransient<ITreatmentData, TreatmentData>();
             builder.Services.AddTransient<IMedicalConditionData, MedicalConditionData>();
