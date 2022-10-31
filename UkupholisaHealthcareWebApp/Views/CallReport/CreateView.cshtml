@@ -1,0 +1,22 @@
+﻿@using UkupholisaHealthcare.Library.Models
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model FamilyLink
+@{
+    <div class="container">
+        <h1>Thank you Mr/Ms <strong>@Model.FamilyName</strong></h1>
+        <form asp-action="Create">
+            <div class="row">
+                <div class="col-7 form-group">
+                    <label  class="control-label">Are you satisfied with our services?</label>
+                    <input  class="form-control" type="checkbox" name="isSatisfied" required />
+                </div>
+                <div class="col-5">
+                    <input type="submit" value="EndCall" class="col-6 btn btn-outline-danger" />
+                </div>
+            </div>
+            
+        </form>
+    </div>
+}

@@ -1,83 +1,46 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using UkupholisaHealthcare.Library.BussinessLogic;
+using UkupholisaHealthcare.Library.Models;
 
 namespace UkupholisaHealthcareWebApp.Controllers
 {
     public class CallReportController : Controller
     {
+        private readonly ICallReportData _callReportData;
+        private readonly IClientData _clientData;
+
+        public CallReportController(ICallReportData callReportData, IClientData clientData)
+        {
+            _callReportData = callReportData;
+            _clientData = clientData;
+        }
         // GET: CallReportController
         public ActionResult Index()
         {
-            return View();
+            var callReports = _callReportData.GetAllCallReport();
+            return View(callReports);
+
         }
 
-        // GET: CallReportController/Details/5
-        public ActionResult Details(int id)
+        public IActionResult CreateView(FamilyLink family)
         {
-            return View();
+            return View(family);
         }
 
-        // GET: CallReportController/Create
-        public ActionResult Create()
+        public IActionResult Create(int familyId, bool isSatisfied)
         {
-            return View();
+            CallReport report = new CallReport();
+            Random rnd = new Random();
+
+            report.ClientId = familyId;
+            report.CallDuration = rnd.Next(30, 300);
+            report.IsSatisfied = isSatisfied;
+
+            _callReportData.InsertCallReport(report);
+
+            return RedirectToAction("Home", "Index");   
         }
 
-        // POST: CallReportController/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: CallReportController/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        // POST: CallReportController/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: CallReportController/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: CallReportController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
     }
 }

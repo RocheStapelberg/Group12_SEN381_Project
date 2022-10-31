@@ -6,5 +6,6 @@ namespace UkupholisaHealthcareWebApp.Models
     {
         public List<Client>? clientList { get; set; }
         public List<Provider>? providerList { get; set; }
+
     }
 }

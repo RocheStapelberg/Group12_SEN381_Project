@@ -1,12 +1,27 @@
 ﻿@model FamilyPolicyViewModel
 @{
-    <div class="container">
-        <h1>Mr/Ms @Model.family.FamilyName Choose a policy for your family</h1>
+    <div class="container justify-content-center">
+        <h1>Mr/Ms @Model.family.FamilyName choose a policy for your family</h1>
         <hr>
-        <form>
-            <div class="row justify-content-center mt-3">
-                <a class="col-6 btn btn-outline-danger" asp-action="Index"><i class="fa-solid fa-phone"></i>End Call</a>
-            </div>
-        </form>
+        <h2 class="text-center">Our Available policies</h2>
+            @foreach (var policy in Model.policies)
+            {
+            <div class="row mt-3">
+                <div class="col-2"></div>
+                <div class="card col-8 px-0">
+                    <h5 class="card-header text-light bg-dark">@policy.PolicyName <span class="badge bg-primary">Active</span></h5>
+                    <div class="card-body">
+                        <h5 class="card-title">R @policy.PolicyMonthlyPrice</h5>
+                        <p class="card-text">@policy.Description</p>
+                        <a class="col-6 btn btn-outline-success" asp-action="AddChosenPolicyToFamily" asp-route-familyId="@Model.family.Id" asp-route-policyId="@policy.Id">Choose Policy</a>
+                    </div>
+                </div>
+                <div class="col-2"></div>
+                </div>
+               
+            }
+        <div class="row justify-content-center mt-4">
+            <a class="col-6 btn btn-outline-danger btn-lg" asp-action="Index"><i class="fa-solid fa-phone"></i> End Call</a>
+        </div>
     </div>
 }

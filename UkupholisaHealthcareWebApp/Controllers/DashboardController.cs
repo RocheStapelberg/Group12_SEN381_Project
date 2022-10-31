@@ -21,9 +21,12 @@ namespace UkupholisaHealthcareWebApp.Controllers
         public ActionResult Index()
         {
             List<Client> clients = _clientData.GetClients();
+            List<Provider> providers = _providerData.GetAllProviders();
             DashboardViewModel model = new DashboardViewModel();
 
             model.clientList = clients;
+            model.providerList = providers;
+
             string[] memberTypes = {"AccountHolder", "Adult", "Child"};
 
             var count = clients.GroupBy(x => x.MemberType).Select(z => z.Count());

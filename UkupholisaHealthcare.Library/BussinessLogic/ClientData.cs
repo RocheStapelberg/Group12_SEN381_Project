@@ -26,6 +26,12 @@ namespace UkupholisaHealthcare.Library.BussinessLogic
             
         }
 
+        public FamilyLink GetFamilyByFamilyId(int id)
+        {
+            var output = _sql.LoadData<FamilyLink, dynamic>("spGetFamilyById", new { id });
+            return output[0];
+
+        }
         public void InsertFamily(FamilyLink familyLink)
         {
             _sql.RunStoredProcedure("spInsertFamily", familyLink);

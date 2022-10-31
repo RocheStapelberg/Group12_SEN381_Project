@@ -1,12 +1,69 @@
-﻿@*
+﻿@using UkupholisaHealthcare.Library.Models
+@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
     Layout = "~/Views/Shared/_StaffLayout.cshtml";
 }
+@model List<CallReport>
 @{
     <div class="container">
-        <h1 class="text-center">Call Report Manager</h1>
+        <h1 class="text-center">Call Report Management</h1>
+        <hr />
+        <a class="btn btn-outline-primary" asp-action="CreateView">Add new Call Report to database</a>
+        <div class="row">
+            <form class="form-inline" asp-action="Filter">
+                <div class="row mt-3">
+                    <div class="col-8">
+                        <input class="form-control" type="text" id="providerName" name="providerName" placeholder="Search for a Call Report" required />
+                    </div>
+                    <div class="col-4">
+                        <input class="btn btn-outline-primary btn-block" type="submit" value="Search" />
+                    </div>
+                </div>
+            </form>
+        </div>
+        <hr />
+        <table class="table table-hover">
+            <thead class="table-dark">
+                <tr>
+                    <td>Id</td>
+                    <td>Client</td>
+                    <td>Call Duration</td>
+                    <td>Client Satisfaction</td>
+                    <td>Manage</td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var call in Model)
+                {
+                    <tr>
+                        <td>@call.Id</td>
+                        <td>
+                            <a class="btn btn-outline-primary" asp-action="ViewCallClient" asp-route-id="@call.ClientId">View Client</a>
+                        </td>
+                        <td>@call.CallDuration sec</td>
+                        @if (call.IsSatisfied)
+                        {
+                            <td>
+                                <span class="badge bg-success">Satisfied</span>
+                            </td>
+                        }
+                        else
+                        {
+                            <td>
+                                <span class="badge bg-danger">Not Satisfied</span>
+                            </td>
+                        }
+
+                        <td>
+                            <a class="btn btn-outline-info" asp-action="EditView" asp-route-id="@call.Id">Edit</a>
+                            <a class="btn btn-outline-danger" asp-action="Delete" asp-route-id="@call.Id">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
     </div>
 }
 

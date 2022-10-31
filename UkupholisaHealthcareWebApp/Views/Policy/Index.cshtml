@@ -1,12 +1,57 @@
-﻿@*
+﻿@using UkupholisaHealthcare.Library.Models
+@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
     Layout = "~/Views/Shared/_StaffLayout.cshtml";
 }
+@model List<Policy>
 @{
     <div class="container">
-        <h1 class="text-center">Policy Manager</h1>
+        <h1 class="text-center">Policy Management</h1>
+        <hr />
+        <a class="btn btn-outline-primary" asp-action="CreateView">Add new policy to database</a>
+        <div class="row">
+            <form class="form-inline" asp-action="Filter">
+                <div class="row mt-3">
+                    <div class="col-8">
+                        <input class="form-control" type="text" id="providerName" name="providerName" placeholder="Search for a policy" required />
+                    </div>
+                    <div class="col-4">
+                        <input class="btn btn-outline-primary btn-block" type="submit" value="Search" />
+                    </div>
+                </div>
+            </form>
+        </div>
+        <hr />
+        <table class="table table-hover">
+            <thead class="table-dark">
+                <tr>
+                    <td>Id</td>
+                    <td>Policy Name</td>
+                    <td>Policy Price (Monthly)</td>
+                    <td>Policy IsApproved</td>
+                    <td>Policy IsActive</td>
+                    <td>Manage</td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var policy in Model)
+                {
+                    <tr>
+                        <td>@policy.Id</td>
+                        <td>@policy.PolicyName</td>
+                        <td>R @Math.Round(policy.PolicyMonthlyPrice, 2)</td>
+                        <td>@policy.IsApproved</td>
+                        <td>@policy.IsActive</td>
+                        <td>
+                            <a class="btn btn-outline-info" asp-action="EditView" asp-route-id="@policy.Id">Edit</a>
+                            <a class="btn btn-outline-danger" asp-action="Delete" asp-route-id="@policy.Id">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
     </div>
 }
 

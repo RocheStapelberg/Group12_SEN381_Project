@@ -9,9 +9,8 @@ namespace UkupholisaHealthcare.Library.Models
     public class CallReport
     {
         public int Id { get; set; }
-        public int FK_ClientId { get; set; }
-        public DateTime CallBegin { get; set; }
-        public DateTime CallEnd { get; set; }
+        public int ClientId { get; set; }
+        public int CallDuration { get; set; }
         public bool IsSatisfied { get; set; }
 
     }

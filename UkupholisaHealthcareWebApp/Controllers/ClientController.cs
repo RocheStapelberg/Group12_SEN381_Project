@@ -11,11 +11,13 @@ namespace UkupholisaHealthcareWebApp.Controllers
     {
         private readonly IClientData _clientData;
         private readonly IPolicyData _policyData;
+        private readonly ICallReportData _callReportData;
 
-        public ClientController(IClientData clientData, IPolicyData policyData)
+        public ClientController(IClientData clientData, IPolicyData policyData, ICallReportData callReportData)
         {
             _clientData = clientData;
             _policyData = policyData;
+            _callReportData = callReportData;
         }
 
         // GET: ClientController
@@ -63,13 +65,15 @@ namespace UkupholisaHealthcareWebApp.Controllers
             FamilyPolicyViewModel familyPolicy = new FamilyPolicyViewModel();
             familyPolicy.family = family;
             familyPolicy.policies = _policyData.GetPolicies();
+            ViewBag.CurrentId = family.Id;
             return View(familyPolicy);
         }
 
-        public ActionResult AddChosenPolicyToFamily(FamilyLink family, int policyId)
+        public ActionResult AddChosenPolicyToFamily(int familyId, int policyId)
         {
-            _policyData.AddPolicyToFamily(family.Id, policyId);
-            return RedirectToAction("Home", "Index");
+            _policyData.AddPolicyToFamily(familyId, policyId);
+            var family = _clientData.GetFamilyByFamilyId(familyId);
+            return RedirectToAction("CreateView", "CallReport", family);
         }
     }
 }
