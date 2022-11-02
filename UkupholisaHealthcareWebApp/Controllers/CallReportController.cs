@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Cryptography;
 using UkupholisaHealthcare.Library.BussinessLogic;
 using UkupholisaHealthcare.Library.Models;
 
@@ -33,7 +34,7 @@ namespace UkupholisaHealthcareWebApp.Controllers
             CallReport report = new CallReport();
             Random rnd = new Random();
 
-            report.ClientId = familyId;
+            report.Client_Id = familyId;        
             report.CallDuration = rnd.Next(30, 300);
             report.IsSatisfied = isSatisfied;
 
