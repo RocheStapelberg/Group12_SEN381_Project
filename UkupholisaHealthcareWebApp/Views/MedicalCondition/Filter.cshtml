@@ -18,7 +18,7 @@
                         <input class="form-control" type="text" id="ConditionName" name="ConditionName" placeholder="Search for a Medical Condition" required />
                     </div>
                     <div class="col-4">
-                        <input class="btn btn-outline-primary btn-block" type="submit" value="Search" />
+                         <button class="btn btn-outline-primary btn-block" type="submit" > <i class="fa-solid fa-magnifying-glass"></i> Search</button>
                     </div>
                 </div>
             </form>
@@ -32,6 +32,8 @@
                     <td>Condition Name</td>
                     <td>Description</td>
                     <td>Manage</td>
+                    <td>Delete</td>
+
                 </tr>
             </thead>
             <tbody>
@@ -42,11 +44,17 @@
                         <td>@medicalCondition.Treatment_Id</td>
                         <td>@medicalCondition.ConditionName</td>
                         <td>
-                            <a class="btn btn-outline-success" asp-action="ViewFull" asp-route-id="@medicalCondition.Id">View Description</a>
+                            <a class="btn btn-outline-success" asp-action="ViewFull" asp-route-id="@medicalCondition.Id"><i class="fa-solid fa-eye"></i> View Description</a>
                         </td>
                         <td>
-                            <a class="btn btn-outline-info" asp-action="EditPage" asp-route-id="@medicalCondition.Id">Edit</a>
-                            <a class="btn btn-outline-danger" asp-action="Delete" asp-route-id="@medicalCondition.Id">Delete</a>
+                            <a class="btn btn-outline-info" asp-action="EditPage" asp-route-id="@medicalCondition.Id"><i class="fa-solid fa-pencil"></i> Edit</a>
+                           
+                        </td>
+                        <td>
+                        <form asp-action="Delete" method="OnGetDelete" asp-route-id="@medicalCondition.Id" 
+                             onclick="return confirm('Are you sure you want to delete this?')">
+                             <button type="submit" class="btn btn-danger"><i class="fas fa-trash-alt text-white"></i> Delete</button>
+                            </form>
                         </td>
                     </tr>
                 }

@@ -33,6 +33,8 @@
                     <td>Policy IsApproved</td>
                     <td>Policy IsActive</td>
                     <td>Manage</td>
+                    <td>Delete</td>
+
                 </tr>
             </thead>
             <tbody>
@@ -46,8 +48,15 @@
                         <td>@policy.IsActive</td>
                         <td>
                             <a class="btn btn-outline-info" asp-action="EditView" asp-route-id="@policy.Id">Edit</a>
-                            <a class="btn btn-outline-danger" asp-action="Delete" asp-route-id="@policy.Id">Delete</a>
+                            
                         </td>
+
+                        <td>
+                        <form asp-action="Delete" method="OnGetDelete" asp-route-id="@policy.Id" 
+                             onclick="return confirm('Are you sure you want to delete this?')">
+                             <button type="submit" class="btn btn-danger"><i class="fas fa-trash-alt text-white"></i> Delete</button>
+                            </form>
+                            </td>
                     </tr>
                 }
             </tbody>
