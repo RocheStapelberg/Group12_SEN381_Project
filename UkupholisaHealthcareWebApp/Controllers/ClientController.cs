@@ -41,7 +41,10 @@ namespace UkupholisaHealthcareWebApp.Controllers
         {
             return View();
         }
-
+        public ActionResult CreateView()
+        {
+            return View();
+        }
         public ActionResult CreateClient(Client client)
         {
             // Create family

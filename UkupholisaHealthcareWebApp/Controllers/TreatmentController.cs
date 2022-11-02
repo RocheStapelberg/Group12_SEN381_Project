@@ -26,5 +26,17 @@ namespace UkupholisaHealthcareWebApp.Controllers
             List<Treatment> filteredTreatment = _treatmentData.SearchTreatmentByName(TreatmentName);
             return View(filteredTreatment);
         }
+        public ActionResult CreateView()
+        {
+            return View();
+        }
+
+        // GET: ProviderController/Create
+        public ActionResult Create(Treatment treatment)
+        {
+            _treatmentData.InsertTreatment(treatment);
+            return RedirectToAction("Index");
+        }
+
     }
 }
