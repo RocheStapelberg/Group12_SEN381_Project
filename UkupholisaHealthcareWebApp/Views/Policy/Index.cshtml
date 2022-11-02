@@ -10,7 +10,7 @@
     <div class="container">
         <h1 class="text-center">Policy Management</h1>
         <hr />
-        <a class="btn btn-outline-primary" asp-action="CreateView">Add new policy to database</a>
+        <a class="btn btn-outline-primary" asp-action="CreateView"><i class="fa-solid fa-plus"></i> Add New Policy to Database </a>
         <div class="row">
             <form class="form-inline" asp-action="Filter">
                 <div class="row mt-3">
@@ -18,7 +18,7 @@
                         <input class="form-control" type="text" id="providerName" name="providerName" placeholder="Search for a policy" required />
                     </div>
                     <div class="col-4">
-                        <input class="btn btn-outline-primary btn-block" type="submit" value="Search" />
+                         <button class="btn btn-outline-primary btn-block" type="submit" > <i class="fa-solid fa-magnifying-glass"></i> Search</button>
                     </div>
                 </div>
             </form>
@@ -47,16 +47,16 @@
                         <td>@policy.IsApproved</td>
                         <td>@policy.IsActive</td>
                         <td>
-                            <a class="btn btn-outline-info" asp-action="EditView" asp-route-id="@policy.Id">Edit</a>
+                          <a class="btn btn-outline-info" asp-action="EditPage" asp-route-id="@policy.Id"><i class="fa-solid fa-pencil"></i> Edit</a>
                             
                         </td>
 
-                        <td>
+                       <td>
                         <form asp-action="Delete" method="OnGetDelete" asp-route-id="@policy.Id" 
                              onclick="return confirm('Are you sure you want to delete this?')">
                              <button type="submit" class="btn btn-danger"><i class="fas fa-trash-alt text-white"></i> Delete</button>
                             </form>
-                            </td>
+                        </td>
                     </tr>
                 }
             </tbody>

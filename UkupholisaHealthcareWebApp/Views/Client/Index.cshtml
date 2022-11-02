@@ -8,49 +8,55 @@
 @model List<FamilyLink>
 @{
     <div class="container">
-    <h1 class="text-center">Client Manager</h1>
-        <a class="btn btn-outline-primary" asp-action="CreateView">Add Family to Database</a>
-        <div class="row">
-            <form class="form-inline" asp-action="Filter">
-                <div class="row mt-3">
-                    <div class="col-8">
-                        <input class="form-control" type="text" id="FirstName" name="FirstName" placeholder="Search for a Client in Database" required />
+        <h1 class="text-center">Client Manager</h1>
+            <a class="btn btn-outline-primary" asp-action="CreateView"><i class="fa-solid fa-plus"></i> Add Family to Database</a>
+            <div class="row">
+                <form class="form-inline" asp-action="Filter">
+                    <div class="row mt-3">
+                        <div class="col-8">
+                            <input class="form-control" type="text" id="FirstName" name="FirstName" placeholder="Search for a Client in Database" required />
+                        </div>
+                        <div class="col-4">
+                            <button class="btn btn-outline-primary btn-block" type="submit"> <i class="fa-solid fa-magnifying-glass"></i> Search</button>
+                        </div>
                     </div>
-                    <div class="col-4">
-                        <input class="btn btn-outline-primary btn-block" type="submit" value="Search" />
-                    </div>
-                </div>
-            </form>
-        </div>
-        <hr />
-        <table class="table table-hover">
-            <thead class="table-dark">
-                <tr>
-                    <td>Id</td>
-                    <td>Family Name</td>
-                    <td>DateCreated</td>
-                    <td>View Members</td>
-                    <td>Manage</td>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var family in Model)
-                {
+                </form>
+            </div>
+            <hr />
+            <table class="table table-hover">
+                <thead class="table-dark">
                     <tr>
-                        <td>@family.Id</td>
-                        <td>@family.FamilyName</td>
-                        <td>@family.DateCreated</td>
-                        <td>
-                            <a class="btn btn-outline-success" asp-action="ViewMembers" asp-route-id="@family.Id">View Members</a>
-                        </td>
-                        <td>
-                            <a class="btn btn-outline-info" asp-action="EditView" asp-route-id="@family.Id">Edit</a>
-                            <a class="btn btn-outline-danger" asp-action="Delete" asp-route-id="@family.Id">Delete</a>
-                        </td>
+                        <td>Id</td>
+                        <td>Family Name</td>
+                        <td>DateCreated</td>
+                        <td>View Members</td>
+                        <td>Manage</td>
+                        <td>Delete</td>
                     </tr>
+                </thead>
+                <tbody>
+                    @foreach (var family in Model)
+                {
+                        <tr>
+                            <td>@family.Id</td>
+                            <td>@family.FamilyName</td>
+                            <td>@family.DateCreated</td>
+                            <td>
+                                <a class="btn btn-outline-success" asp-action="ViewDetails" asp-route-id="@family.Id"><i class="fa-solid fa-eye"></i> View Members</a>
+                            </td>
+                            <td>
+                               <a class="btn btn-outline-info" asp-action="EditView" asp-route-id="@family.Id"><i class="fa-solid fa-pencil"></i> Edit</a>
+                                
+                            </td>
+                            <td>
+                            <form asp-action="Delete" method="OnGetDelete" asp-route-id="@family.Id"
+                          onclick="return confirm('Are you sure you want to delete this?')">
+                                <button type="submit" class="btn btn-danger"><i class="fas fa-trash-alt text-white"></i> Delete</button>
+                            </form>
+                        </tr>
                 }
-            </tbody>
-        </table>
+                </tbody>
+            </table>
     </div>
 }
 
