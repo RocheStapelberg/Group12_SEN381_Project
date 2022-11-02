@@ -42,6 +42,16 @@ namespace UkupholisaHealthcareWebApp.Controllers
 
             return RedirectToAction("Index", "Home");   
         }
+        public ActionResult EmpCreateView()
+        {
+            return View();
+        }
 
+        // GET: ProviderController/Create
+        public ActionResult EmpCreate(CallReport callReport)
+        {
+            _callReportData.InsertCallReport(callReport);
+            return RedirectToAction("Index");
+        }
     }
 }

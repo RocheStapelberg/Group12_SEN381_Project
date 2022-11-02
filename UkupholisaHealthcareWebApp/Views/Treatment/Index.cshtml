@@ -8,7 +8,7 @@
 <h1 class="text-center">Treatment Manager</h1>
 <hr />
 <p>
-    <a class="btn btn-outline-primary" asp-action="Create">Create new Treatment</a>
+    <a class="btn btn-outline-primary" asp-action="CreateView">Create new Treatment</a>
     <form class="form-inline" asp-action="Filter">
                 <div class="row mt-3">
                     <div class="col-8">
@@ -35,6 +35,9 @@
             <th>
                 Manage
             </th>
+            <th>
+                Delete
+            </th>
         </tr>
     </thead>
     <tbody>
@@ -51,8 +54,15 @@
             </td>
             <td>
                 <a class="btn btn-outline-info" asp-action="EditView" asp-route-id="@treatment.Id">Edit</a>
-                <a class="btn btn-outline-danger" asp-action="Delete" asp-route-id="@treatment.Id">Delete</a>
+               
             </td>
+            <td>
+                    <form asp-action="Delete" method="OnGetDelete" asp-route-id="@treatment.Id"
+                      onclick="return confirm('Are you sure you want to delete this?')">
+                             <button type="submit" class="btn btn-danger"><i class="fas fa-trash-alt text-white"></i> Delete</button>
+                 </form>
+            </td>
+
         </tr>
 }
     </tbody>

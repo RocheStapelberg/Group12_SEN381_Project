@@ -19,5 +19,18 @@ namespace UkupholisaHealthcareWebApp.Controllers
             List<Policy> policies = _policyData.GetPolicies();
             return View(policies);
         }
+
+
+        public ActionResult CreateView()
+        {
+            return View();
+        }
+
+        // GET: PolicyController/Create
+        public ActionResult Create(Policy policy)
+        {
+            _policyData.InsertPolicy(policy);
+            return RedirectToAction("Index");
+        }
     }
 }

@@ -10,7 +10,7 @@ namespace UkupholisaHealthcare.Library.Models
     {
         public int Id { get; set; }
 
-        public int Treatement_Id { get; set; }
+        public int Treatment_Id { get; set; }
 
         public string? ConditionName { get; set; }
 

@@ -27,5 +27,10 @@ namespace UkupholisaHealthcare.Library.BussinessLogic
         {
             _sql.RunStoredProcedure("spInsertFamilyLinkPolicy", new { FamilyLink_Id, Policy_Id });
         }
+
+        public void InsertPolicy(Policy policy)
+        {
+            _sql.RunStoredProcedure("spInsertPolicy", policy);
+        }
     }
 }
