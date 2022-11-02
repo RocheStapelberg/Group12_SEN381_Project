@@ -10,7 +10,7 @@
     <div class="container">
         <h1 class="text-center">Call Report Management</h1>
         <hr />
-        <a class="btn btn-outline-primary" asp-action="CreateView"><i class="fa-solid fa-plus"></i>Add new Call Report to database</a>
+        <a class="btn btn-outline-primary" asp-action="CreateView"><i class="fa-solid fa-plus"></i> Add new Call Report to database</a>
         <div class="row">
             <form class="form-inline" asp-action="Filter">
                 <div class="row mt-3">
@@ -41,7 +41,7 @@
                     <tr>
                         <td>@call.Id</td>
                         <td>
-                            <a class="btn btn-outline-primary" asp-action="ViewCallClient" asp-route-id="@call.Client_Id"><i class="fa-solid fa-eye"></i>View Client</a>
+                            <a class="btn btn-outline-primary" asp-action="ViewCallClient" asp-route-id="@call.Client_Id"><i class="fa-solid fa-eye"></i> View Client</a>
                         </td>
                         <td>@call.CallDuration sec</td>
                         @if (call.IsSatisfied)
