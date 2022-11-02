@@ -1,0 +1,59 @@
+﻿@model UkupholisaHealthcare.Library.Models.Policy
+
+@{
+    ViewData["Title"] = "CreateView";
+    Layout = "~/Views/Shared/_StaffLayout.cshtml";
+}
+
+<h1>CreateView</h1>
+
+<h4>Policy</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Id" class="control-label"></label>
+                <input asp-for="Id" class="form-control" />
+                <span asp-validation-for="Id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PolicyName" class="control-label"></label>
+                <input asp-for="PolicyName" class="form-control" />
+                <span asp-validation-for="PolicyName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PolicyMonthlyPrice" class="control-label"></label>
+                <input asp-for="PolicyMonthlyPrice" class="form-control" />
+                <span asp-validation-for="PolicyMonthlyPrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IsApproved" class="control-label"></label>
+                <input asp-for="IsApproved" class="form-control" />
+                <span asp-validation-for="IsApproved" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IsActive" class="control-label"></label>
+                <input asp-for="IsActive" class="form-control" />
+                <span asp-validation-for="IsActive" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
