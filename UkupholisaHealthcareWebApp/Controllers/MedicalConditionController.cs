@@ -28,11 +28,18 @@ namespace UkupholisaHealthcareWebApp.Controllers
             return View();
         }
 
+        public ActionResult CreateView()
+        {
+            return View();
+        }
+
+        // GET: ProviderController/Create
         public ActionResult Create(MedicalCondition medicalCondition)
         {
+            _medicalConditionData.InsertMedicalCondition(medicalCondition);
             return RedirectToAction("Index");
         }
-        
+
         // GET: MedicalConditionController/Edit/5
         public ActionResult Edit(int id)
         {
