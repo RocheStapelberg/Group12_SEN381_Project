@@ -40,7 +40,7 @@ namespace UkupholisaHealthcareWebApp.Controllers
 
             _callReportData.InsertCallReport(report);
 
-            return RedirectToAction("Home", "Index");   
+            return RedirectToAction("Index", "Home");   
         }
 
     }
