@@ -37,6 +37,11 @@ namespace UkupholisaHealthcareWebApp.Controllers
             _treatmentData.InsertTreatment(treatment);
             return RedirectToAction("Index");
         }
+        public ActionResult Delete(int id)
+        {
+            _treatmentData.DeleteTreatment(id);
+            return RedirectToAction("Index");
+        }
 
     }
 }
