@@ -49,6 +49,7 @@ namespace UkupholisaHealthcareWebApp.Controllers
         // GET: MedicalConditionController/Delete/5
         public ActionResult Delete(int id)
         {
+            _medicalConditionData.DeleteMedicalCondition(id);
             return RedirectToAction("Index");
         }
 
