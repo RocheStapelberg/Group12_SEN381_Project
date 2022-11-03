@@ -32,5 +32,11 @@ namespace UkupholisaHealthcareWebApp.Controllers
             _policyData.InsertPolicy(policy);
             return RedirectToAction("Index");
         }
+
+        public ActionResult Delete(int id)
+        {
+            _policyData.DeletePolicy(id);
+            return RedirectToAction("Index");
+        }
     }
 }

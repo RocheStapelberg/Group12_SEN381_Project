@@ -8,6 +8,8 @@ namespace UkupholisaHealthcare.Library.BussinessLogic
         void AddPolicyToFamily(int FamilyLink_Id, int Policy_Id);
 
         void InsertPolicy(Policy policy);
+
+        void DeletePolicy(int id);
     }
 
 }
