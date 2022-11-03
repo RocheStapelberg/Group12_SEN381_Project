@@ -78,5 +78,17 @@ namespace UkupholisaHealthcareWebApp.Controllers
             var family = _clientData.GetFamilyByFamilyId(familyId);
             return RedirectToAction("CreateView", "CallReport", family);
         }
+
+        public ActionResult Delete(int id)
+        {
+            _clientData.DeleteClient(id);
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult DeleteFamily(int id)
+        {
+            _clientData.DeleteFamily(id);
+            return RedirectToAction("Index");
+        }
     }
 }
