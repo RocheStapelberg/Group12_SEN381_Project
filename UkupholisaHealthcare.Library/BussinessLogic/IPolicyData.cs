@@ -10,6 +10,8 @@ namespace UkupholisaHealthcare.Library.BussinessLogic
         void InsertPolicy(Policy policy);
 
         void DeletePolicy(int id);
+
+        void UpdatePolicy(Policy policy);
     }
 
 }
