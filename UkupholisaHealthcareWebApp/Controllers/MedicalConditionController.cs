@@ -41,9 +41,16 @@ namespace UkupholisaHealthcareWebApp.Controllers
         }
 
         // GET: MedicalConditionController/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult EditView(int id)
         {
-            return View();
+           MedicalCondition medicalCondition= _medicalConditionData.GetMedicalConditionById(id);
+            return View(medicalCondition);
+        }
+
+        public ActionResult Edit(MedicalCondition medicalCondition)
+        {
+            _medicalConditionData.UpdateMedicalCondition(medicalCondition);
+            return RedirectToAction("Index");
         }
 
         // GET: MedicalConditionController/Delete/5
