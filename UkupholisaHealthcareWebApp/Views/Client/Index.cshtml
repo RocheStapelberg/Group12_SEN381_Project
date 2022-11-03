@@ -42,14 +42,14 @@
                             <td>@family.FamilyName</td>
                             <td>@family.DateCreated</td>
                             <td>
-                                <a class="btn btn-outline-success" asp-action="ViewDetails" asp-route-id="@family.Id"><i class="fa-solid fa-eye"></i> View Members</a>
+                                <a class="btn btn-outline-success" asp-action="ViewMembers" asp-route-id="@family.Id"><i class="fa-solid fa-eye"></i> View Members</a>
                             </td>
                             <td>
                                <a class="btn btn-outline-info" asp-action="EditView" asp-route-id="@family.Id"><i class="fa-solid fa-pencil"></i> Edit</a>
                                 
                             </td>
                             <td>
-                            <form asp-action="Delete" method="OnGetDelete" asp-route-id="@family.Id"
+                            <form asp-action="DeleteFamily" method="OnGetDelete" asp-route-id="@family.Id"
                           onclick="return confirm('Are you sure you want to delete this?')">
                                 <button type="submit" class="btn btn-danger"><i class="fas fa-trash-alt text-white"></i> Delete</button>
                             </form>

@@ -6,9 +6,9 @@
 }
 
 <h1 class="text-center">Employee Management</h1>
-<hr/>
+<hr />
 <p>
-    <a class="btn btn-outline-primary" asp-action="Create">Create New Employee</a>
+    <a class="btn btn-outline-primary" asp-controller="Login" asp-action="CreatePage">Create New Employee</a>
 </p>
 <table class="table">
     <thead class="table-dark">
@@ -22,37 +22,30 @@
             <th>
                 @Html.DisplayNameFor(model => model.Password) Hash
             </th>
-            <th>
-                Manage
-            </th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Email)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Password)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Password)
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
 
-@section Scripts 
-{
-<script>
-    $('.list-group-item').removeClass('active');
-    $('#userLink').addClass('active');
-</script>
+@section Scripts
+    {
+    <script>
+        $('.list-group-item').removeClass('active');
+        $('#userLink').addClass('active');
+    </script>
 }

@@ -44,7 +44,7 @@ namespace UkupholisaHealthcare.Library.BussinessLogic
 
         public void DeleteFamily(int id)
         {
-            _sql.RunStoredProcedure("", id);
+            _sql.RunStoredProcedure("spDeleteFamily", new {id});
         }
 
         public List<Client> GetClientsByFamilyId(int id)
@@ -72,7 +72,7 @@ namespace UkupholisaHealthcare.Library.BussinessLogic
 
         public void DeleteClient(int id)
         {
-            _sql.RunStoredProcedure("", id);
+            _sql.RunStoredProcedure("spDeleteClient", new {id});
         }
 
         public void UpdateClient(Client client)
