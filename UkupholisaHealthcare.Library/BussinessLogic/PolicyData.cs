@@ -16,7 +16,15 @@ namespace UkupholisaHealthcare.Library.BussinessLogic
         {
             _sql = sql;
         }
-
+        public Policy GetPolicyById(int id)
+        {
+            var output = _sql.LoadData<Policy, dynamic>("spGetPolicyById", new { id });
+            return output[0];
+        }
+        public void UpdatePolicy(Policy policy)
+        {
+            _sql.RunStoredProcedure("spUpdatePolicy", policy);
+        }
         public List<Policy> GetPolicies()
         {
             var output = _sql.LoadData<Policy, dynamic>("spGetAllPolicy", new { });
@@ -32,5 +40,6 @@ namespace UkupholisaHealthcare.Library.BussinessLogic
         {
             _sql.RunStoredProcedure("spInsertPolicy", policy);
         }
+
     }
 }

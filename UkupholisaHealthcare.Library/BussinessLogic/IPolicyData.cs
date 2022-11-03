@@ -6,8 +6,9 @@ namespace UkupholisaHealthcare.Library.BussinessLogic
     {
         List<Policy> GetPolicies();
         void AddPolicyToFamily(int FamilyLink_Id, int Policy_Id);
-
+        Policy GetPolicyById(int id);
         void InsertPolicy(Policy policy);
+        void UpdatePolicy(Policy policy);
     }
 
 }
