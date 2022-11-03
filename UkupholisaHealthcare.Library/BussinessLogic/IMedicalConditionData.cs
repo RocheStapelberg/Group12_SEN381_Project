@@ -8,7 +8,7 @@ namespace UkupholisaHealthcare.Library.BussinessLogic
         List<MedicalCondition> GetAllMedicalCondition();
         void InsertMedicalCondition(MedicalCondition medicalCondition);
         void UpdateMedicalCondition(MedicalCondition medicalCondition);
-
+        MedicalCondition GetMedicalConditionById(int id);
         List<MedicalCondition> SearchMedicalConditionByName(string ConditionName);
     }
 }
