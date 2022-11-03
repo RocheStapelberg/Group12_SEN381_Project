@@ -22,7 +22,7 @@ namespace UkupholisaHealthcareWebApp.Controllers
 
         public ActionResult EditView(int id)
         {
-            Policy policy= _policyData.GetPolicyById(id);
+            Policy policy = _policyData.GetPolicyById(id);
             return View(policy);
         }
 
