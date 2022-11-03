@@ -44,11 +44,13 @@
                         <input asp-for="IsApproved" class="form-control" value="@Model.IsApproved" required />
                         <span asp-validation-for="IsApproved" class="text-danger"></span>
                     </div>
+                </div>
             <div class=" col-6 form-group">
                         <label asp-for="IsActive" class="control-label">Provider Contact</label>
                         <input asp-for="IsActive" class="form-control" value="@Model.IsActive" required />
                         <span asp-validation-for="IsActive" class="text-danger"></span>
             </div>
+        </div>
         </div>
         <div class="row justify-content-center mt-3">
             <input type="submit" value="Update" class="col-6 btn btn-outline-primary" />
