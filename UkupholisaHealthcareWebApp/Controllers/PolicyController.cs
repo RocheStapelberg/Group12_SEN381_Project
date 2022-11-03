@@ -20,6 +20,17 @@ namespace UkupholisaHealthcareWebApp.Controllers
             return View(policies);
         }
 
+        public ActionResult EditView(int id)
+        {
+            Policy policy = _policyData.GetPolicyById(id);
+            return View(policy);
+        }
+
+        public ActionResult Edit(Policy policy)
+        {
+            _policyData.UpdatePolicy(policy);
+            return RedirectToAction("Index");
+        }
 
         public ActionResult CreateView()
         {

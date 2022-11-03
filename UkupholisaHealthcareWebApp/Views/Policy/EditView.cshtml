@@ -1,0 +1,70 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model UkupholisaHealthcare.Library.Models.Policy
+
+@{
+    ViewData["Title"] = "Create Page";
+    Layout = "~/Views/Shared/_StaffLayout.cshtml";
+}
+<h1 class="text-center">Update Policy Data</h1>
+<hr />
+<div class="container">
+    <form class="" asp-action="Edit">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="row">
+            <div class="col-6 form-group">
+                <label asp-for="Id" class="control-label">Policy Id</label>
+                <input asp-for="Id" class="form-control" value="@Model.Id" required readonly />
+                <span asp-validation-for="Id" class="text-danger"></span>
+            </div>
+            <div class="col-6 form-group">
+                <label asp-for="PolicyName" class="control-label">Policy Name</label>
+                <input asp-for="PolicyName" class="form-control" value="@Model.PolicyName" required />
+                <span asp-validation-for="PolicyName" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class=" col-6 form-group">
+                <label asp-for="Description" class="control-label"> Description</label>
+                <input asp-for="Description" class="form-control" value="@Model.Description" required />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="row mt-3">
+                <div class=" col-6 form-group">
+                    <label asp-for="PolicyMonthlyPrice" class="control-label"> Description</label>
+                    <input asp-for="PolicyMonthlyPrice" class="form-control" value="@Model.PolicyMonthlyPrice" required />
+                    <span asp-validation-for="PolicyMonthlyPrice" class="text-danger"></span>
+                </div>
+                <div class="row mt-3">
+                    <div class=" col-6 form-group">
+                        <label asp-for="IsApproved" class="control-label"> isApproved</label>
+                        <input asp-for="IsApproved" class="form-control" value="@Model.IsApproved" required />
+                        <span asp-validation-for="IsApproved" class="text-danger"></span>
+                    </div>
+                </div>
+            <div class=" col-6 form-group">
+                        <label asp-for="IsActive" class="control-label">Provider Contact</label>
+                        <input asp-for="IsActive" class="form-control" value="@Model.IsActive" required />
+                        <span asp-validation-for="IsActive" class="text-danger"></span>
+            </div>
+        </div>
+        </div>
+        <div class="row justify-content-center mt-3">
+            <input type="submit" value="Update" class="col-6 btn btn-outline-primary" />
+        </div>
+    </form>
+</div>
+
+<div class="row justify-content-center mt-3">
+    <a class="col-6 btn btn-outline-info" asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }
+
