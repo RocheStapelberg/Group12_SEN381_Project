@@ -43,6 +43,11 @@ namespace UkupholisaHealthcare.Library.BussinessLogic
             var output = _sql.LoadData<Treatment, dynamic>("spSearchTreatmentByName", new { TreatmentName });
             return output;
         }
+        public Treatment GetTreatmentById(int id)
+        {
+            var output = _sql.LoadData<Treatment, dynamic>("spGetTreatmentById", new { id });
+            return output[0];
+        }
 
     }
 }

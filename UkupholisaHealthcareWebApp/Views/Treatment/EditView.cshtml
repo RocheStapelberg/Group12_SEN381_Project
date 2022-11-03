@@ -1,0 +1,46 @@
+﻿@model UkupholisaHealthcare.Library.Models.Treatment
+
+@{
+    ViewData["Title"] = "Create Page";
+    Layout = "~/Views/Shared/_StaffLayout.cshtml";
+}
+<h1 class="text-center">Update Treatment Data</h1>
+<hr />
+<div class="container">
+    <form class="" asp-action="Edit">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="row">
+            <div class="col-6 form-group">
+                <label asp-for="Id" class="control-label">Treatment Id</label>
+                <input asp-for="Id" class="form-control" value="@Model.Id" required readonly />
+                <span asp-validation-for="Id" class="text-danger"></span>
+            </div>
+            <div class="col-6 form-group">
+                <label asp-for="TreatmentName" class="control-label">Treatment Name</label>
+                <input asp-for="TreatmentName" class="form-control" value="@Model.TreatmentName" required />
+                <span asp-validation-for="TreatmentName" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class=" col-6 form-group">
+                <label asp-for="Description" class="control-label"> Treatment Description </label>
+                <input asp-for="Description" class="form-control" value="@Model.Description" required />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+          
+        </div>
+        <div class="row justify-content-center mt-3">
+            <input type="submit" value="Update" class="col-6 btn btn-outline-primary" />
+        </div>
+    </form>
+</div>
+
+<div class="row justify-content-center mt-3">
+    <a class="col-6 btn btn-outline-info" asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }

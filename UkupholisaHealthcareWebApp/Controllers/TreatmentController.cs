@@ -30,7 +30,17 @@ namespace UkupholisaHealthcareWebApp.Controllers
         {
             return View();
         }
+        public ActionResult EditView(int id)
+        {
+            Treatment treatment= _treatmentData.GetTreatmentById(id);
+            return View(treatment);
+        }
 
+        public ActionResult Edit(Treatment treatment)
+        {
+            _treatmentData.UpdateTreatment(treatment);
+            return RedirectToAction("Index");
+        }
         // GET: ProviderController/Create
         public ActionResult Create(Treatment treatment)
         {
