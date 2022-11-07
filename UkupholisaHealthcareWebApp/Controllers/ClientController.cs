@@ -37,6 +37,12 @@ namespace UkupholisaHealthcareWebApp.Controllers
             List<Client> members = _clientData.GetClientsByFamilyId(id);
             return View(members);
         }
+
+        public ActionResult ViewFamilyPolicy(int id)
+        {
+            List<Policy> policies = _policyData.GetPoliciesByFamilyId(id);
+            return View(policies);
+        }
         public ActionResult ClientInfo()
         {
             return View();

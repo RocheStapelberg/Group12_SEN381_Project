@@ -44,11 +44,25 @@
                         <td>@policy.Id</td>
                         <td>@policy.PolicyName</td>
                         <td>R @Math.Round(policy.PolicyMonthlyPrice, 2)</td>
-                        <td>@policy.IsApproved</td>
-                        <td>@policy.IsActive</td>
+                        @if (@policy.IsApproved)
+                        {
+                            <td><span class="badge bg-success">Approved</span></td>
+                        }
+                        else
+                        {
+                            <td><span class="badge bg-danger"> Not Approved</span></td>
+                        }
+                        @if (@policy.IsActive)
+                        {
+                            <td><span class="badge bg-success">Active</span></td>
+                        }
+                        else
+                        {
+                            <td><span class="badge bg-danger">Not Active</span></td>
+                        }
+                        
                         <td>
                           <a class="btn btn-outline-info" asp-action="EditPage" asp-route-id="@policy.Id"><i class="fa-solid fa-pencil"></i> Edit</a>
-                            
                         </td>
 
                        <td>

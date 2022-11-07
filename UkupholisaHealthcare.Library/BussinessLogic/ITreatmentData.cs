@@ -8,7 +8,7 @@ namespace UkupholisaHealthcare.Library.BussinessLogic
         List<Treatment> GetAllTreatments();
         void InsertTreatment(Treatment treatment);
         void UpdateTreatment(Treatment treatment);
-
+        Treatment GetTreatmentById(int id);
         List<Treatment> SearchTreatmentByName(string TreatmentName);
     }
 }

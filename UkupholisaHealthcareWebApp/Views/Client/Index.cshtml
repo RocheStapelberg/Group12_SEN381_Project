@@ -30,6 +30,7 @@
                         <td>Family Name</td>
                         <td>DateCreated</td>
                         <td>View Members</td>
+                        <td>Family Policy</td>
                         <td>Manage</td>
                         <td>Delete</td>
                     </tr>
@@ -44,6 +45,9 @@
                             <td>
                                 <a class="btn btn-outline-success" asp-action="ViewMembers" asp-route-id="@family.Id"><i class="fa-solid fa-eye"></i> View Members</a>
                             </td>
+                        <td>
+                            <a class="btn btn-outline-dark" asp-action="ViewFamilyPolicy" asp-route-id="@family.Id"><i class="fa-solid fa-eye"></i> View Policy</a>
+                        </td>
                             <td>
                                <a class="btn btn-outline-info" asp-action="EditView" asp-route-id="@family.Id"><i class="fa-solid fa-pencil"></i> Edit</a>
                                 

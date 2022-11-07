@@ -42,6 +42,13 @@ namespace UkupholisaHealthcareWebApp.Controllers
 
             return RedirectToAction("Index", "Home");   
         }
+
+        public ActionResult ViewCallClient(int id)
+        {
+            Client client = _clientData.GetClientById(id);
+            return View(client);
+        }
+
         public ActionResult EmpCreateView()
         {
             return View();

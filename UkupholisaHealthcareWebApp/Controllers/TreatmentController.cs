@@ -20,7 +20,11 @@ namespace UkupholisaHealthcareWebApp.Controllers
             var treatments = _treatmentData.GetAllTreatments();
             return View(treatments);
         }
-
+        public ActionResult ViewFull(int id)
+        {
+            Treatment treatment = _treatmentData.GetTreatmentById(id);
+            return View(treatment);
+        }
         public ActionResult Filter(string TreatmentName)
         {
             List<Treatment> filteredTreatment = _treatmentData.SearchTreatmentByName(TreatmentName);
