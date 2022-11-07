@@ -10,7 +10,7 @@ namespace UkupholisaHealthcare.Library.BussinessLogic
         void InsertPolicy(Policy policy);
 
         void DeletePolicy(int id);
-
+        
         void UpdatePolicy(Policy policy);
         List<int> GetPolicyCount();
         List<Policy> GetPoliciesByFamilyId(int family_Id);
