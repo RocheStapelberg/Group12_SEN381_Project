@@ -42,13 +42,11 @@
                     <div class=" col-6 form-group mb-2">
                         <label asp-for="IsApproved" class="form-check-label"> Is Approved</label>
                         @Html.CheckBox("IsApproved")
-                        <span asp-validation-for="IsApproved" class="text-danger"></span>
                     </div>
                 </div>
             <div class=" col-6 form-group">
-                        <label asp-for="IsActive" class="control-label">Is Active </label>
+                        <label asp-for="IsActive" class="control-label">Is Active</label>
                         @Html.CheckBox("IsActive")
-                        <span asp-validation-for="IsActive" class="text-danger"></span>
             </div>
         </div>
         </div>
