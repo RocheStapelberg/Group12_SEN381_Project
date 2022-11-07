@@ -4,7 +4,7 @@
     ViewData["Title"] = "Create Page";
     Layout = "~/Views/Shared/_StaffLayout.cshtml";
 }
-<h1 class="text-center">Update Medical  Condituion Data</h1>
+<h1 class="text-center">Update Medical Condition Data</h1>
 <hr />
 <div class="container">
     <form class="" asp-action="Edit">
@@ -28,7 +28,7 @@
                 <span asp-validation-for="ConditionName" class="text-danger"></span>
             </div>
             <div class=" col-6 form-group">
-                <label asp-for="Description" class="control-label">Provider Contact</label>
+                <label asp-for="Description" class="control-label">Description</label>
                 <input asp-for="Description" class="form-control" value="@Model.Description" required />
                 <span asp-validation-for="Description" class="text-danger"></span>
             </div>
