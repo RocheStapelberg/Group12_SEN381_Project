@@ -21,7 +21,11 @@ namespace UkupholisaHealthcare.Library.BussinessLogic
         {
             var output = _sql.LoadData<Treatment, dynamic>("spGetAllTreatment", new { });
             return output;
-
+        }
+        public Treatment GetTreatmentById(int id)
+        {
+            var output = _sql.LoadData<Treatment, dynamic>("spGetTreatmentById", new { id });
+            return output[0];
         }
         public void InsertTreatment(Treatment treatment)
         {

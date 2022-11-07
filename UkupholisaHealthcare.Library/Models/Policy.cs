@@ -12,7 +12,7 @@ namespace UkupholisaHealthcare.Library.Models
         public string? PolicyName { get; set; }
         public string? Description { get; set; }
         public decimal PolicyMonthlyPrice { get; set; }
-        public bool? IsApproved { get; set; }
-        public bool? IsActive { get; set; }
+        public bool IsApproved { get; set; }
+        public bool IsActive { get; set; }
     }
 }

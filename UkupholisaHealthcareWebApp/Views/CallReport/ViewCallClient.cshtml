@@ -1,0 +1,53 @@
+﻿@using UkupholisaHealthcare.Library.Models
+@{
+    Layout = "~/Views/Shared/_StaffLayout.cshtml";
+}
+@model Client
+@{
+    <div class="container">
+        <h2>Client Details</h2>
+        <hr>
+            <div class="row">
+                <div class="col-4 form-group">
+                    <label asp-for="Firstname" class="control-label">First Name</label>
+                    <input asp-for="Firstname" class="form-control" value="@Model.Firstname" required />
+                </div>
+                <div class=" col-4 form-group">
+                    <label asp-for="Surname" class="control-label">Surname</label>
+                    <input asp-for="Surname" class="form-control" value="@Model.Surname" required />
+                </div>
+                <div class=" col-4 form-group">
+                    <label asp-for="Gender" class="control-label">Gender</label>
+                    <input asp-for="Gender" class="form-control" value="@Model.Gender" required />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4 form-group">
+                    <label asp-for="Cellphone" class="control-label">Cellphone</label>
+                    <input asp-for="Cellphone" class="form-control" value="@Model.Cellphone" required />
+                </div>
+                <div class=" col-4 form-group">
+                    <label asp-for="MemberType" class="control-label">Gender</label>
+                    <input asp-for="MemberType" class="form-control" value="@Model.MemberType" required />
+                    <span asp-validation-for="MemberType" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col form-group">
+                    <label asp-for="EmailAddress" class="control-label">Email</label>
+                    <input asp-for="EmailAddress" class="form-control" type="email" value="@Model.EmailAddress" required />
+                    <span asp-validation-for="EmailAddress" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col form-group">
+                    <label asp-for="Address" class="control-label">Home Address</label>
+                    <input asp-for="Address" class="form-control" value="@Model.Address" required />
+                    <span asp-validation-for="Address" class="text-danger"></span>
+                </div>
+            </div>
+        <div class="row justify-content-center mt-3">
+            <a class="col-6 btn btn-outline-info" asp-action="Index">Back to List</a>
+        </div>
+    </div>
+}

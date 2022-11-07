@@ -1,0 +1,39 @@
+﻿@using UkupholisaHealthcare.Library.Models
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = "~/Views/Shared/_StaffLayout.cshtml";
+}
+@model List<Policy>
+@{
+    <div class="container">
+        <h2 class="text-center">Family Policies</h2>
+        <hr>
+        @foreach (var policy in Model)
+        {
+            <div class="row mt-3">
+                <div class="col-2"></div>
+                <div class="card col-8 px-0">
+                    <h5 class="card-header text-light bg-dark">@policy.PolicyName</h5>
+                    <div class="card-body">
+                        @if (policy.IsActive)
+                        {
+                            <span class="badge bg-success">Active</span>
+                        }
+                        else
+                        {
+                            <span class="badge bg-danger">Not Active</span>
+                        }
+                        <h5 class="card-title">R @policy.PolicyMonthlyPrice</h5>
+                        <p class="card-text">@policy.Description</p>
+                    </div>
+                </div>
+                <div class="col-2"></div>
+            </div>
+        }
+        <div class="row justify-content-center mt-4">
+            <a class="col-6 btn btn-outline-info" asp-action="Index">Back to List</a>
+        </div>
+    </div>
+}

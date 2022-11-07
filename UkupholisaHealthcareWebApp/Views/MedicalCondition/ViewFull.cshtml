@@ -1,0 +1,18 @@
+﻿@using UkupholisaHealthcare.Library.Models
+@{
+    Layout = "~/Views/Shared/_StaffLayout.cshtml";
+}
+@model MedicalCondition
+@{
+    <div class="container">
+        <h1 class="text-center">Treatment Details</h1>
+        <hr>
+        <h2>Medical Condition Name</h2>
+        <p>@Model.ConditionName</p>
+        <h2>Description</h2>
+        <p>@Model.Description</p>
+        <div class="row justify-content-center mt-3">
+            <a class="col-6 btn btn-outline-info" asp-action="Index">Back to List</a>
+        </div>
+    </div>
+}

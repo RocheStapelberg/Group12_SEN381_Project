@@ -22,10 +22,11 @@ namespace UkupholisaHealthcareWebApp.Controllers
             List<MedicalCondition> MedicalConditionList = _medicalConditionData.GetAllMedicalCondition();
             return View(MedicalConditionList);
         }
-        // GET: MedicalConditionController/Details/5
-        public ActionResult ViewMedicalConditions(int id)
+
+        public ActionResult ViewFull(int id)
         {
-            return View();
+            MedicalCondition med = _medicalConditionData.GetMedicalConditionById(id);
+            return View(med);
         }
 
         public ActionResult CreateView()
@@ -33,7 +34,6 @@ namespace UkupholisaHealthcareWebApp.Controllers
             return View();
         }
 
-        // GET: ProviderController/Create
         public ActionResult Create(MedicalCondition medicalCondition)
         {
             _medicalConditionData.InsertMedicalCondition(medicalCondition);

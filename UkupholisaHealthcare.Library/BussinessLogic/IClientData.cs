@@ -7,6 +7,7 @@ namespace UkupholisaHealthcare.Library.BussinessLogic
         void DeleteClient(int id);
         void DeleteFamily(int id);
         List<Client> GetClients();
+        Client GetClientById(int id);
         List<Client> GetClientsByFamilyId(int id);
         FamilyLink GetFamilyByFamilyId(int id);
         FamilyLink GetFamilyByFamilyName(string familyName);

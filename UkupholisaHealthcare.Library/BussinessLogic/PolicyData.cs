@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Dynamic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,9 +26,21 @@ namespace UkupholisaHealthcare.Library.BussinessLogic
         {
             _sql.RunStoredProcedure("spUpdatePolicy", policy);
         }
+
+        public List<int> GetPolicyCount()
+        {
+            var output = _sql.LoadData<int, dynamic>("spCountPolicies", new { });
+            return output;
+        }
         public List<Policy> GetPolicies()
         {
             var output = _sql.LoadData<Policy, dynamic>("spGetAllPolicy", new { });
+            return output;
+        }
+
+        public List<Policy> GetPoliciesByFamilyId(int family_Id)
+        {
+            var output = _sql.LoadData<Policy, dynamic>("spGetPoliciesByFamilyId", new { family_Id });
             return output;
         }
 
