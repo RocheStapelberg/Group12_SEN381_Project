@@ -28,6 +28,7 @@ END
 GO
 -- INSERT
 CREATE PROCEDURE spInsertTreatment
+@Id int ,
 	@TreatmentName NVARCHAR(50),
 	@Description NVARCHAR(max)
 AS
