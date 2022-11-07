@@ -54,5 +54,9 @@ namespace UkupholisaHealthcare.Library.BussinessLogic
             _sql.RunStoredProcedure("spInsertPolicy", policy);
         }
 
+        public void DeletePolicy(int id)
+        {
+            _sql.RunStoredProcedure("spDeletePolicy", new {id});
+        }
     }
 }

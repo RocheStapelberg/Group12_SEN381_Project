@@ -27,5 +27,11 @@ namespace UkupholisaHealthcare.Library.BussinessLogic
         {
             _sql.RunStoredProcedure("spInsertCallReport", report);
         }
+
+        public void DeleteCallReport(int id)
+        {
+            _sql.RunStoredProcedure("spDeleteCallReport", new { id });
+        }
+
     }
 }

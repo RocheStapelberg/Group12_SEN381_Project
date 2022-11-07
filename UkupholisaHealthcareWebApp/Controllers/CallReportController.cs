@@ -60,5 +60,12 @@ namespace UkupholisaHealthcareWebApp.Controllers
             _callReportData.InsertCallReport(callReport);
             return RedirectToAction("Index");
         }
+
+        public ActionResult Delete(int id)
+        {
+            _callReportData.DeleteCallReport(id);
+            return RedirectToAction("Index");
+        }
+
     }
 }

@@ -6,5 +6,9 @@ namespace UkupholisaHealthcare.Library.BussinessLogic
     {
         List<CallReport> GetAllCallReport();
         void InsertCallReport(CallReport report);
+
+        void DeleteCallReport(int id);
     }
+
+
 }
