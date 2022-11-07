@@ -1,13 +1,12 @@
 ﻿@model UkupholisaHealthcare.Library.Models.Policy
-
 @{
     ViewData["Title"] = "CreateView";
     Layout = "~/Views/Shared/_StaffLayout.cshtml";
 }
-
-<h1>CreateView</h1>
-
-<h4>Policy</h4>
+<h1>Create Policy</h1>
+<div class="row">
+    <a class="col-6 btn btn-outline-info" asp-action="Index">Back to List</a>
+</div>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -33,25 +32,19 @@
                 <input asp-for="PolicyMonthlyPrice" class="form-control" />
                 <span asp-validation-for="PolicyMonthlyPrice" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group mt-3">
                 <label asp-for="IsApproved" class="control-label"></label>
-                <input asp-for="IsApproved" class="form-control" />
-                <span asp-validation-for="IsApproved" class="text-danger"></span>
+                @Html.CheckBox("IsApproved")
             </div>
             <div class="form-group">
                 <label asp-for="IsActive" class="control-label"></label>
-                <input asp-for="IsActive" class="form-control" />
-                <span asp-validation-for="IsActive" class="text-danger"></span>
+                @Html.CheckBox("IsActive")
             </div>
-            <div class="form-group">
+            <div class="row form-group mt-4">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>
     </div>
-</div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
 </div>
 
 @section Scripts {

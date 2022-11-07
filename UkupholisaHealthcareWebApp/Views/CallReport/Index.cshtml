@@ -30,7 +30,6 @@
                     <td>Client</td>
                     <td>Call Duration</td>
                     <td>Client Satisfaction</td>
-                    <td>Manage</td>
                     <td>Delete</td>
                 </tr>
             </thead>
@@ -55,11 +54,6 @@
                                 <span class="badge bg-danger">Not Satisfied</span>
                             </td>
                         }
-
-                        <td>
-                            <a class="btn btn-outline-info" asp-action="EditView" asp-route-id="@call.Id"><i class="fa-solid fa-pencil"></i> Edit</a>
-                           
-                        </td>
                         <td>
                             <form asp-action="Delete" method="OnGetDelete" asp-route-id="@call.Id"
                           onclick="return confirm('Are you sure you want to delete this?')">

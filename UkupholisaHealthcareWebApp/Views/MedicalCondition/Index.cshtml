@@ -1,7 +1,4 @@
 ﻿@using UkupholisaHealthcare.Library.Models
-@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
 @{
     Layout = "~/Views/Shared/_StaffLayout.cshtml";
 }
@@ -50,7 +47,6 @@
                             <a class="btn btn-outline-info" asp-action="EditView" asp-route-id="@medicalCondition.Id"><i class="fa-solid fa-pencil"></i> Edit</a>
                             
                         </td>
-
                         <td>
                         <form asp-action="Delete" method="OnGetDelete" asp-route-id="@medicalCondition.Id" 
                              onclick="return confirm('Are you sure you want to delete this?')">
