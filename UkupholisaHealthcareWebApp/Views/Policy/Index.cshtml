@@ -16,6 +16,7 @@
             <thead class="table-dark">
                 <tr>
                     <td>Id</td>
+                    <td>Policy_UID</td>
                     <td>Policy Name</td>
                     <td>Policy Price (Monthly)</td>
                     <td>Policy IsApproved</td>
@@ -29,6 +30,7 @@
                 {
                     <tr>
                         <td>@policy.Id</td>
+                        <td>@policy.Policy_UID</td>
                         <td>@policy.PolicyName</td>
                         <td>R @Math.Round(policy.PolicyMonthlyPrice, 2)</td>
                         @if (@policy.IsApproved)

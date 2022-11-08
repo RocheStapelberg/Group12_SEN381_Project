@@ -25,6 +25,7 @@
             <thead class="table-dark">
                 <tr>
                     <td>Id</td>
+                    <td>Client UID</td>
                     <td>Firstname</td>
                     <td>Surname</td>
                     <td>Age</td>
@@ -32,7 +33,7 @@
                     <td>Email</td>
                     <td>MemberType</td>
                     <td>Active Member</td>
-                    <td>Details and Policy</td>
+                    <td>Delete</td>
                 </tr>
             </thead>
             <tbody>
@@ -40,6 +41,7 @@
                 {
                     <tr class="align-middle">
                         <td>@member.Id</td>
+                        <td>@member.Client_UID</td>
                         <td>@member.Firstname</td>
                         <td>@member.Surname</td>
                         <td>@member.Age</td>
@@ -76,10 +78,7 @@
                             </td>
                         }
                         <td>
-                            <a class="btn btn-outline-Success" asp-action="ViewDetails" asp-route-id="@member.Id">View Details and Policy</a>
-                        </td>
-                        <td>
-                            <a class="btn btn-outline-danger" asp-action="Delete" asp-route-id="@member.Id">Delete</a>
+                            <a class="btn btn-danger" asp-action="Delete" asp-route-id="@member.Id">Delete</a>
                         </td>
                     </tr>
                 }

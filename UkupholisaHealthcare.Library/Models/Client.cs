@@ -27,6 +27,7 @@ namespace UkupholisaHealthcare.Library.Models
         public string? MemberType { get; set; }
         public bool IsActive { get; set; }
         public DateTime DateCreated { get; set; } = DateTime.Now;
+        public string? Client_UID { get; set; }
 
 
     }
