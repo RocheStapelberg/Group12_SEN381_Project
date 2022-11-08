@@ -29,19 +29,21 @@ GO
 -- INSERT
 CREATE PROCEDURE spInsertTreatment
 @Id int ,
+    @Days int,
 	@TreatmentName NVARCHAR(50),
 	@Description NVARCHAR(max)
 AS
 BEGIN
 	SET NOCOUNT ON;
     -- Insert SP for Treatment
-	INSERT INTO [Treatment](TreatmentName, [Description])
-	VALUES (@TreatmentName, @Description);
+	INSERT INTO [Treatment](TreatmentName,[Days], [Description])
+	VALUES (@TreatmentName,@Days, @Description);
 END
 GO
 -- UPDATE 
 CREATE PROCEDURE spUpdateTreatment
     @Id INT,
+	@Days int,
 	@TreatmentName NVARCHAR(50),
 	@Description NVARCHAR(max)
 AS
@@ -49,7 +51,7 @@ BEGIN
 	SET NOCOUNT ON;
     -- Insert SP for Treatment
 	UPDATE [Treatment]
-    SET TreatmentName = @TreatmentName, [Description] = @Description
+    SET TreatmentName = @TreatmentName, [Days]=@Days, [Description] = @Description
     WHERE Id = @Id
 END
 GO
