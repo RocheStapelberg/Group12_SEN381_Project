@@ -30,8 +30,12 @@
                 @Html.DisplayNameFor(model => model.TreatmentName)
             </th>
             <th>
+                @Html.DisplayNameFor(model => model.Days)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Description)
             </th>
+          
             <th>
                 Manage
             </th>
@@ -50,6 +54,9 @@
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => treatment.TreatmentName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => treatment.Days)
                 </td>
                 <td>
                     <a class="btn btn-outline-success" asp-action="ViewFull" asp-route-id="@treatment.Id"><i class="fa-solid fa-eye"></i> View Treatment</a>

@@ -27,6 +27,11 @@
                 <input asp-for="Description" class="form-control" value="@Model.Description" required />
                 <span asp-validation-for="Description" class="text-danger"></span>
             </div>
+             <div class="col-6 form-group">
+                <label asp-for="Days" class="control-label">Days</label>
+                <input asp-for="Days" class="form-control" value="@Model.Days" required  />
+                <span asp-validation-for="Days" class="text-danger"></span>
+            </div>
           
         </div>
         <div class="row justify-content-center mt-3">
