@@ -13,7 +13,7 @@ Use database backup to restore database and change connection string in appsetti
 ## Home Page
 ![Index page](images/Home.png)
 
-## Empoyee Login
+## Employee Login
 ![Login](images/Login.png)
 
 ## Dashboard
