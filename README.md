@@ -1,6 +1,10 @@
 # Group12 SEN381 Project
 This our repository for our SEN381 Group project.
 
+This application is used to manage a healthcare insurance company.
+
+Use database backup to restore database and change connection string in appsettings.json.
+
 ## Group Members
  - Roche Stapelberg
  - Marlou Froneman
